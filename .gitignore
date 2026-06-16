@@ -1,8 +1,8 @@
 node_modules
 dist
 dist-ssr
+*.tsbuildinfo
 _planning
-.claude
 *.local
 .DS_Store
 .vscode
