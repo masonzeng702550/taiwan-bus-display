@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import type { RouteFile, Stop, Theme, Transfer, TransferType } from "../types";
 import { THEMES, themeById, themeToCssVars } from "../data/themes";
 import { exportRoute, parseRouteFile, saveRoute } from "../data/storage";
+import { fillEmptyLanguages, needsFill } from "../data/translate";
+import { SAMPLE_ROUTES } from "../data/sampleRoute";
 import { NextStop } from "../player/pages/NextStop";
 
 const TRANSFER_TYPES: TransferType[] = ["metro", "tra", "thsr", "bus", "other"];
@@ -27,6 +29,7 @@ export function Editor({
 }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [importError, setImportError] = useState("");
+  const [bulkBusy, setBulkBusy] = useState(false);
 
   const update = (patch: Partial<RouteFile>) => onChange({ ...route, ...patch });
 
@@ -49,6 +52,19 @@ export function Editor({
     });
   };
 
+  const translateAll = async () => {
+    setBulkBusy(true);
+    try {
+      const next = [...route.stops];
+      for (let i = 0; i < next.length; i++) {
+        if (needsFill(next[i].name)) next[i] = { ...next[i], name: await fillEmptyLanguages(next[i].name) };
+      }
+      setStops(next);
+    } finally {
+      setBulkBusy(false);
+    }
+  };
+
   const cssVars = themeToCssVars(route.theme) as React.CSSProperties;
 
   return (
@@ -56,6 +72,17 @@ export function Editor({
       <header className="editor-top">
         <h1>台灣巴士車內資訊顯示系統</h1>
         <div className="top-actions">
+          <select
+            defaultValue=""
+            onChange={(e) => {
+              const s = SAMPLE_ROUTES[+e.target.value];
+              if (s) onChange(structuredClone(s.route));
+              e.target.value = "";
+            }}
+          >
+            <option value="" disabled>載入範例…</option>
+            {SAMPLE_ROUTES.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
+          </select>
           <button onClick={() => { saveRoute(route); }}>儲存</button>
           <button onClick={() => exportRoute(route)}>匯出 JSON</button>
           <button onClick={() => fileRef.current?.click()}>匯入 JSON</button>
@@ -119,8 +146,14 @@ export function Editor({
       <section className="panel stops-panel">
         <div className="stops-head">
           <h2>③ 站序與轉乘（{route.stops.length} 站）</h2>
-          <button onClick={() => setStops([...route.stops, blankStop(route.stops.length + 1)])}>＋ 新增站</button>
+          <div className="stops-head-actions">
+            <button onClick={translateAll} disabled={bulkBusy} title="將每站缺少的語言自動翻譯填入">
+              {bulkBusy ? "翻譯中…" : "🌐 翻譯所有空白欄位"}
+            </button>
+            <button onClick={() => setStops([...route.stops, blankStop(route.stops.length + 1)])}>＋ 新增站</button>
+          </div>
         </div>
+        <p className="hint-text">提示：在任一語言欄位輸入站名後切換到其他欄位，會自動翻譯填入空白的另外兩種語言（日文為機器翻譯，建議檢查）。</p>
         <div className="stops-table">
           {route.stops.map((s, idx) => (
             <StopRow
@@ -170,16 +203,28 @@ function StopRow({
   onRemove: () => void;
 }) {
   const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
   const setName = (k: "zh" | "en" | "ja" | "jaReading") => (v: string) =>
     onUpdate({ name: { ...stop.name, [k]: v } });
+
+  const autofill = async () => {
+    if (busy || !needsFill(stop.name)) return;
+    setBusy(true);
+    try {
+      onUpdate({ name: await fillEmptyLanguages(stop.name) });
+    } finally {
+      setBusy(false);
+    }
+  };
 
   return (
     <div className="stop-row">
       <div className="stop-main">
         <span className="seq">{idx + 1}</span>
-        <input className="cell" placeholder="站名（中）" value={stop.name.zh} onChange={(e) => setName("zh")(e.target.value)} />
-        <input className="cell" placeholder="English" value={stop.name.en} onChange={(e) => setName("en")(e.target.value)} />
-        <input className="cell" placeholder="日本語" value={stop.name.ja} onChange={(e) => setName("ja")(e.target.value)} />
+        <input className="cell" placeholder="站名（中）" value={stop.name.zh} onChange={(e) => setName("zh")(e.target.value)} onBlur={autofill} />
+        <input className="cell" placeholder="English" value={stop.name.en} onChange={(e) => setName("en")(e.target.value)} onBlur={autofill} />
+        <input className="cell" placeholder="日本語" value={stop.name.ja} onChange={(e) => setName("ja")(e.target.value)} onBlur={autofill} />
+        <button className="icon" onClick={autofill} disabled={busy} title="自動翻譯空白語言">{busy ? "…" : "譯"}</button>
         <button className="icon" onClick={() => onMove(-1)} disabled={idx === 0}>↑</button>
         <button className="icon" onClick={() => onMove(1)} disabled={idx === total - 1}>↓</button>
         <button className="icon" onClick={() => setOpen((o) => !o)}>{open ? "▲" : "▼"}</button>

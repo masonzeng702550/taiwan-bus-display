@@ -56,7 +56,9 @@ input:focus, select:focus { outline: none; border-color: var(--ui-accent); }
 .error { color: #ff6b6b; }
 
 .stops-panel { margin-top: 12px; }
-.stops-head { display: flex; align-items: center; justify-content: space-between; }
+.stops-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.stops-head-actions { display: flex; gap: 8px; }
+.hint-text { font-size: 12px; color: var(--ui-muted); margin: 6px 0 10px; }
 .stops-table { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
 .stop-row { border: 1px solid var(--ui-line); border-radius: 8px; padding: 6px; }
 .stop-main { display: flex; align-items: center; gap: 6px; }
