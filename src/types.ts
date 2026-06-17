@@ -83,5 +83,5 @@ export const DEFAULT_SETTINGS: PlaybackSettings = {
   ttsRate: 1,
   showFare: true,
   stopListCount: 4,
-  voices: { zh: "Li-Mu", en: "Samantha", ja: "O-Ren" },
+  voices: { zh: "美佳", en: "Samantha", ja: "O-Ren" },
 };

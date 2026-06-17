@@ -28,7 +28,7 @@
     "ttsRate": 1,
     "showFare": true,
     "stopListCount": 4,
-    "voices": { "zh": "Li-Mu", "en": "Samantha", "ja": "O-Ren" }
+    "voices": { "zh": "美佳", "en": "Samantha", "ja": "O-Ren" }
   },
   "stops": [
     { "seq": 1, "name": { "zh": "莊敬里", "en": "Zhuangjing Village", "ja": "荘敬里" }, "fare": { "adult": 15, "child": 8 } },

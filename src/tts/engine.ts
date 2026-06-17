@@ -16,7 +16,7 @@ export interface Phrase {
 // Sensible default voices (macOS names) used when a language has no explicit
 // choice. Auto-pick prefers these before falling back to any locale match.
 export const DEFAULT_VOICE_NAMES: Record<Lang, string> = {
-  zh: "Li-Mu",
+  zh: "美佳",
   en: "Samantha",
   ja: "O-Ren",
 };

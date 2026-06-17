@@ -28,7 +28,7 @@
     "ttsRate": 1,
     "showFare": true,
     "stopListCount": 4,
-    "voices": { "zh": "Li-Mu", "en": "Samantha", "ja": "O-Ren" }
+    "voices": { "zh": "美佳", "en": "Samantha", "ja": "O-Ren" }
   },
   "stops": [
     { "seq": 1, "name": { "zh": "臺北客運板橋前站(藝文)", "en": "Taipei Bus Banqiao Station (Art)", "ja": "台北客運板橋前駅(芸文)" }, "fare": { "adult": 15, "child": 8 } },
