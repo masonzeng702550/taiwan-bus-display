@@ -25,10 +25,14 @@ export const DEFAULT_VOICE_NAMES: Record<Lang, string> = {
 // allowlist, only those voices are offered (falling back to the full curated
 // list if none are installed on this device).
 const VOICE_ALLOWLIST: Partial<Record<Lang, string[]>> = {
-  zh: ["美佳", "Mei-Jia", "Li-Mu"],
-  en: ["Samantha"],
+  zh: ["美佳", "Mei-Jia", "Li-Mu", "Tingting", "Ting-Ting", "婷婷", "Sinji", "Sin-ji"],
+  en: ["Samantha", "Alex", "Daniel", "Karen", "Moira", "Tessa", "Serena", "Rishi", "Veena", "Allison", "Ava", "Nathan", "Noelle", "Joelle", "Aaron", "Nicky"],
   ja: ["O-Ren", "Kyoko", "Otoya", "Hattori"],
 };
+
+// Higher-quality / natural voices that sound like real announcements, matched
+// by name marker regardless of language (network or downloaded premium voices).
+const QUALITY_VOICE = /google|siri|enhanced|premium|natural|网络|網路|網絡/i;
 
 // Novelty / joke voices that are unsuitable for announcements (macOS). Hidden
 // from the picker so only usable voices are offered.
@@ -73,7 +77,7 @@ export function voicesForLang(lang: Lang): SpeechSynthesisVoice[] {
   const inLang = cachedVoices.filter((v) => v.lang.toLowerCase().startsWith(prefix));
   const allow = VOICE_ALLOWLIST[lang];
   if (allow) {
-    const picked = inLang.filter((v) => allow.includes(v.name));
+    const picked = inLang.filter((v) => allow.includes(v.name) || QUALITY_VOICE.test(v.name));
     if (picked.length) return picked;
   }
   return inLang.filter((v) => !BLOCKED_VOICES.has(v.name.toLowerCase()));
