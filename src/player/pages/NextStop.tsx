@@ -21,7 +21,7 @@ export function NextStop({ route, stop }: { route: RouteFile; stop: Stop }) {
       </div>
       <div className="next-box">
         <div className="stop-zh fit">{stop.name.zh}</div>
-        <div className="accent-line" />
+        <div className="divider-line" />
         <div className="stop-en">{stop.name.en}</div>
       </div>
     </div>
