@@ -1,10 +1,14 @@
 import { useRef, useState } from "react";
-import type { RouteFile, Stop, Theme, Transfer, TransferType } from "../types";
+import type { Lang, RouteFile, Stop, Theme, Transfer, TransferType } from "../types";
 import { THEMES, themeById, themeToCssVars } from "../data/themes";
 import { exportRoute, parseRouteFile, saveRoute } from "../data/storage";
 import { fillEmptyLanguages, needsFill } from "../data/translate";
 import { SAMPLE_ROUTES } from "../data/sampleRoute";
+import { speakSample, voicesForLang } from "../tts/engine";
+import { useVoices } from "./useVoices";
 import { NextStop } from "../player/pages/NextStop";
+
+const LANG_LABEL: Record<Lang, string> = { zh: "中文", en: "English", ja: "日本語" };
 
 const TRANSFER_TYPES: TransferType[] = ["metro", "tra", "thsr", "bus", "other"];
 
@@ -30,6 +34,10 @@ export function Editor({
   const fileRef = useRef<HTMLInputElement>(null);
   const [importError, setImportError] = useState("");
   const [bulkBusy, setBulkBusy] = useState(false);
+  useVoices(); // re-render once the browser's voice list is ready
+
+  const setVoice = (lang: Lang, voiceURI: string) =>
+    update({ settings: { ...route.settings, voices: { ...route.settings.voices, [lang]: voiceURI } } });
 
   const update = (patch: Partial<RouteFile>) => onChange({ ...route, ...patch });
 
@@ -142,6 +150,38 @@ export function Editor({
           </div>
         </section>
       </div>
+
+      <section className="panel voices-panel">
+        <h2>④ 廣播語音（依裝置已安裝的語音而定）</h2>
+        <div className="voices-grid">
+          {(route.settings.languages as Lang[]).map((lang) => {
+            const list = voicesForLang(lang);
+            const selected = route.settings.voices?.[lang] ?? "";
+            return (
+              <div key={lang} className="voice-row">
+                <span className="voice-lang">{LANG_LABEL[lang]}</span>
+                <select value={selected} onChange={(e) => setVoice(lang, e.target.value)}>
+                  <option value="">自動挑選</option>
+                  {list.map((v) => (
+                    <option key={v.voiceURI} value={v.voiceURI}>
+                      {v.name}（{v.lang}）
+                    </option>
+                  ))}
+                </select>
+                <button onClick={() => speakSample(lang, selected || undefined, route.settings.ttsRate)}>🔊 試聽</button>
+                {list.length === 0 && <span className="warn-inline">此裝置未安裝{LANG_LABEL[lang]}語音</span>}
+              </div>
+            );
+          })}
+        </div>
+        <label className="rate-row">
+          語速 {route.settings.ttsRate.toFixed(1)}×
+          <input
+            type="range" min="0.5" max="1.5" step="0.1" value={route.settings.ttsRate}
+            onChange={(e) => update({ settings: { ...route.settings, ttsRate: +e.target.value } })}
+          />
+        </label>
+      </section>
 
       <section className="panel stops-panel">
         <div className="stops-head">

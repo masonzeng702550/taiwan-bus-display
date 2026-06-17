@@ -8,6 +8,8 @@ import { localeFor, nextStop, routeStart, transferLine } from "./templates";
 export interface Phrase {
   lang: Lang;
   text: string;
+  /** Optional preferred voice (voiceURI); falls back to auto-pick. */
+  voiceURI?: string;
 }
 
 const synth = typeof window !== "undefined" ? window.speechSynthesis : undefined;
@@ -35,7 +37,18 @@ export function availableLanguages(langs: Lang[]): Lang[] {
   });
 }
 
-function bestVoice(lang: Lang): SpeechSynthesisVoice | undefined {
+/** All installed voices that match a language (for the editor's picker). */
+export function voicesForLang(lang: Lang): SpeechSynthesisVoice[] {
+  if (!cachedVoices.length) refreshVoices();
+  const prefix = localeFor(lang).slice(0, 2).toLowerCase();
+  return cachedVoices.filter((v) => v.lang.toLowerCase().startsWith(prefix));
+}
+
+function bestVoice(lang: Lang, voiceURI?: string): SpeechSynthesisVoice | undefined {
+  if (voiceURI) {
+    const chosen = cachedVoices.find((v) => v.voiceURI === voiceURI);
+    if (chosen) return chosen;
+  }
   const locale = localeFor(lang).toLowerCase();
   const prefix = locale.slice(0, 2);
   return (
@@ -43,6 +56,17 @@ function bestVoice(lang: Lang): SpeechSynthesisVoice | undefined {
     cachedVoices.find((v) => v.lang.toLowerCase().startsWith(prefix))
   );
 }
+
+/** Speak a one-off sample phrase, used by the editor's "試聽" buttons. */
+export function speakSample(lang: Lang, voiceURI: string | undefined, rate = 1): void {
+  speakSequence([{ lang, text: SAMPLE_TEXT[lang], voiceURI }], rate);
+}
+
+const SAMPLE_TEXT: Record<Lang, string> = {
+  zh: "下一站，台北車站。",
+  en: "Next stop, Taipei Main Station.",
+  ja: "次は、台北駅です。",
+};
 
 export function cancel(): void {
   synth?.cancel();
@@ -61,7 +85,7 @@ export function speakSequence(phrases: Phrase[], rate = 1): Promise<void> {
       const u = new SpeechSynthesisUtterance(p.text);
       u.lang = localeFor(p.lang);
       u.rate = rate;
-      const v = bestVoice(p.lang);
+      const v = bestVoice(p.lang, p.voiceURI);
       if (v) u.voice = v;
       u.onend = next;
       u.onerror = next;
@@ -73,10 +97,14 @@ export function speakSequence(phrases: Phrase[], rate = 1): Promise<void> {
 
 // --- High level announcement helpers -------------------------------------
 
+function voiceFor(route: RouteFile, lang: Lang): string | undefined {
+  return route.settings.voices?.[lang];
+}
+
 export function announceRouteStart(route: RouteFile): Promise<void> {
   const langs = pickLangs(route);
   return speakSequence(
-    langs.map((lang) => ({ lang, text: routeStart(route, lang) })),
+    langs.map((lang) => ({ lang, text: routeStart(route, lang), voiceURI: voiceFor(route, lang) })),
     route.settings.ttsRate,
   );
 }
@@ -85,9 +113,10 @@ export function announceNextStop(route: RouteFile, stop: Stop, arrived = false):
   const langs = pickLangs(route);
   const phrases: Phrase[] = [];
   for (const lang of langs) {
-    phrases.push({ lang, text: nextStop(stop, lang, arrived) });
+    const voiceURI = voiceFor(route, lang);
+    phrases.push({ lang, text: nextStop(stop, lang, arrived), voiceURI });
     for (const t of stop.transfers ?? []) {
-      phrases.push({ lang, text: transferLine(t, lang) });
+      phrases.push({ lang, text: transferLine(t, lang), voiceURI });
     }
   }
   return speakSequence(phrases, route.settings.ttsRate);
