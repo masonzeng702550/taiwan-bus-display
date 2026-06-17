@@ -19,29 +19,36 @@ export function unlockAudio(): void {
   if (c && c.state === "suspended") void c.resume();
 }
 
-function tone(c: AudioContext, freq: number, at: number, dur: number, peak = 0.22): void {
-  // Electronic timbre: a square wave (buzzy, synth-like) plus a triangle an
-  // octave below for body — deliberately NOT a pure sine bell/xylophone tone.
-  const gain = c.createGain();
-  gain.connect(c.destination);
+function tone(c: AudioContext, freq: number, at: number, dur: number, peak = 0.26): void {
+  // Warm, deep electronic timbre: a sawtooth run through a gentle low-pass
+  // (cuts the shrill/emergency-beep harmonics) plus a sine an octave below for
+  // weight. Soft attack so there's no harsh click.
+  const out = c.createGain();
+  out.connect(c.destination);
+
+  const lp = c.createBiquadFilter();
+  lp.type = "lowpass";
+  lp.frequency.value = 950;
+  lp.Q.value = 0.6;
+  lp.connect(out);
 
   const main = c.createOscillator();
-  main.type = "square";
+  main.type = "sawtooth";
   main.frequency.value = freq;
-  main.connect(gain);
+  main.connect(lp);
 
   const sub = c.createOscillator();
-  sub.type = "triangle";
+  sub.type = "sine";
   sub.frequency.value = freq / 2;
   const subGain = c.createGain();
-  subGain.gain.value = 0.5;
+  subGain.gain.value = 0.7;
   sub.connect(subGain);
-  subGain.connect(gain);
+  subGain.connect(out);
 
-  gain.gain.setValueAtTime(0.0001, at);
-  gain.gain.linearRampToValueAtTime(peak, at + 0.012);
-  gain.gain.setValueAtTime(peak, at + dur * 0.5);
-  gain.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+  out.gain.setValueAtTime(0.0001, at);
+  out.gain.linearRampToValueAtTime(peak, at + 0.025);
+  out.gain.setValueAtTime(peak, at + dur * 0.55);
+  out.gain.exponentialRampToValueAtTime(0.0001, at + dur);
 
   main.start(at);
   sub.start(at);
@@ -58,15 +65,15 @@ export function playChime(type: ChimeType = "dingdong"): Promise<void> {
 
   let total: number;
   if (type === "ascending") {
-    // Rising four-note arpeggio (C5 · E5 · G5 · C6).
-    const notes = [523.25, 659.25, 783.99, 1046.5];
-    notes.forEach((f, i) => tone(c, f, now + i * 0.16, 0.34, 0.28));
-    total = notes.length * 0.16 + 0.35;
+    // Rising four-note arpeggio in a low register (C4 · E4 · G4 · C5).
+    const notes = [261.63, 329.63, 392.0, 523.25];
+    notes.forEach((f, i) => tone(c, f, now + i * 0.17, 0.36, 0.26));
+    total = notes.length * 0.17 + 0.4;
   } else {
-    // Deep two-tone "ding-dong" (E5 → A4) with a long, mellow decay.
-    tone(c, 659.25, now, 0.55, 0.32);
-    tone(c, 440.0, now + 0.34, 0.8, 0.34);
-    total = 1.0;
+    // Deep, low two-tone "ding-dong" (E4 → A3) with a long, mellow decay.
+    tone(c, 329.63, now, 0.6, 0.3);
+    tone(c, 220.0, now + 0.36, 0.9, 0.32);
+    total = 1.1;
   }
   return new Promise((resolve) => setTimeout(resolve, total * 1000));
 }
