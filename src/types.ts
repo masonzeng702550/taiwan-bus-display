@@ -58,7 +58,7 @@ export interface PlaybackSettings {
   ttsRate: number;
   showFare: boolean;
   stopListCount: number;
-  /** Preferred TTS voice (voiceURI) per language; empty = auto-pick. */
+  /** Preferred TTS voice (by display name) per language; empty = auto-pick. */
   voices?: Partial<Record<Lang, string>>;
 }
 
@@ -83,5 +83,5 @@ export const DEFAULT_SETTINGS: PlaybackSettings = {
   ttsRate: 1,
   showFare: true,
   stopListCount: 4,
-  voices: {},
+  voices: { zh: "Li-Mu", en: "Samantha", ja: "O-Ren" },
 };

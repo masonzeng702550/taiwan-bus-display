@@ -163,7 +163,7 @@ export function Editor({
                 <select value={selected} onChange={(e) => setVoice(lang, e.target.value)}>
                   <option value="">自動挑選</option>
                   {list.map((v) => (
-                    <option key={v.voiceURI} value={v.voiceURI}>
+                    <option key={v.voiceURI} value={v.name}>
                       {v.name}（{v.lang}）
                     </option>
                   ))}

@@ -8,9 +8,28 @@ import { localeFor, nextStop, routeStart, transferLine } from "./templates";
 export interface Phrase {
   lang: Lang;
   text: string;
-  /** Optional preferred voice (voiceURI); falls back to auto-pick. */
-  voiceURI?: string;
+  /** Optional preferred voice (by display name); falls back to auto-pick. */
+  voiceName?: string;
 }
+
+// Sensible default voices (macOS names) used when a language has no explicit
+// choice. Auto-pick prefers these before falling back to any locale match.
+export const DEFAULT_VOICE_NAMES: Record<Lang, string> = {
+  zh: "Li-Mu",
+  en: "Samantha",
+  ja: "O-Ren",
+};
+
+// Novelty / joke voices that are unsuitable for announcements (macOS). Hidden
+// from the picker so only usable voices are offered.
+const BLOCKED_VOICES = new Set(
+  [
+    "Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos",
+    "Deranged", "Good News", "Hysterical", "Jester", "Junior", "Kathy",
+    "Organ", "Pipe Organ", "Princess", "Ralph", "Superstar", "Trinoids",
+    "Whisper", "Wobble", "Zarvox",
+  ].map((n) => n.toLowerCase()),
+);
 
 const synth = typeof window !== "undefined" ? window.speechSynthesis : undefined;
 
@@ -37,17 +56,21 @@ export function availableLanguages(langs: Lang[]): Lang[] {
   });
 }
 
-/** All installed voices that match a language (for the editor's picker). */
+/** Installed, announcement-suitable voices for a language (for the picker). */
 export function voicesForLang(lang: Lang): SpeechSynthesisVoice[] {
   if (!cachedVoices.length) refreshVoices();
   const prefix = localeFor(lang).slice(0, 2).toLowerCase();
-  return cachedVoices.filter((v) => v.lang.toLowerCase().startsWith(prefix));
+  return cachedVoices.filter(
+    (v) => v.lang.toLowerCase().startsWith(prefix) && !BLOCKED_VOICES.has(v.name.toLowerCase()),
+  );
 }
 
-function bestVoice(lang: Lang, voiceURI?: string): SpeechSynthesisVoice | undefined {
-  if (voiceURI) {
-    const chosen = cachedVoices.find((v) => v.voiceURI === voiceURI);
-    if (chosen) return chosen;
+function bestVoice(lang: Lang, voiceName?: string): SpeechSynthesisVoice | undefined {
+  // Explicit choice, then the language default, then any locale match.
+  const wanted = voiceName || DEFAULT_VOICE_NAMES[lang];
+  if (wanted) {
+    const byName = cachedVoices.find((v) => v.name === wanted);
+    if (byName) return byName;
   }
   const locale = localeFor(lang).toLowerCase();
   const prefix = locale.slice(0, 2);
@@ -58,8 +81,8 @@ function bestVoice(lang: Lang, voiceURI?: string): SpeechSynthesisVoice | undefi
 }
 
 /** Speak a one-off sample phrase, used by the editor's "試聽" buttons. */
-export function speakSample(lang: Lang, voiceURI: string | undefined, rate = 1): void {
-  speakSequence([{ lang, text: SAMPLE_TEXT[lang], voiceURI }], rate);
+export function speakSample(lang: Lang, voiceName: string | undefined, rate = 1): void {
+  speakSequence([{ lang, text: SAMPLE_TEXT[lang], voiceName }], rate);
 }
 
 const SAMPLE_TEXT: Record<Lang, string> = {
@@ -85,7 +108,7 @@ export function speakSequence(phrases: Phrase[], rate = 1): Promise<void> {
       const u = new SpeechSynthesisUtterance(p.text);
       u.lang = localeFor(p.lang);
       u.rate = rate;
-      const v = bestVoice(p.lang, p.voiceURI);
+      const v = bestVoice(p.lang, p.voiceName);
       if (v) u.voice = v;
       u.onend = next;
       u.onerror = next;
@@ -104,7 +127,7 @@ function voiceFor(route: RouteFile, lang: Lang): string | undefined {
 export function announceRouteStart(route: RouteFile): Promise<void> {
   const langs = pickLangs(route);
   return speakSequence(
-    langs.map((lang) => ({ lang, text: routeStart(route, lang), voiceURI: voiceFor(route, lang) })),
+    langs.map((lang) => ({ lang, text: routeStart(route, lang), voiceName: voiceFor(route, lang) })),
     route.settings.ttsRate,
   );
 }
@@ -113,10 +136,10 @@ export function announceNextStop(route: RouteFile, stop: Stop, arrived = false):
   const langs = pickLangs(route);
   const phrases: Phrase[] = [];
   for (const lang of langs) {
-    const voiceURI = voiceFor(route, lang);
-    phrases.push({ lang, text: nextStop(stop, lang, arrived), voiceURI });
+    const voiceName = voiceFor(route, lang);
+    phrases.push({ lang, text: nextStop(stop, lang, arrived), voiceName });
     for (const t of stop.transfers ?? []) {
-      phrases.push({ lang, text: transferLine(t, lang), voiceURI });
+      phrases.push({ lang, text: transferLine(t, lang), voiceName });
     }
   }
   return speakSequence(phrases, route.settings.ttsRate);
