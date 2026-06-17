@@ -102,9 +102,8 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .fit { line-height: 1.05; word-break: break-word; }
 .accent-line, .divider-line { height: 4px; background: var(--c-accent); border-radius: 4px; margin: 2% 8%; }
 .divider-line { background: var(--c-primary); }
-/* Next Stop divider: thin, left-anchored purple line (the box centres its
-   children, so stretch it and offset with margins instead of relying on width). */
-.next-stop .divider-line { align-self: stretch; height: clamp(3px, 0.5vh, 5px); border-radius: 3px; margin: 2.5% 26% 2.5% 6%; }
+/* Next Stop divider: thin, horizontally-centred purple line. */
+.next-stop .divider-line { align-self: center; width: 70%; height: clamp(3px, 0.5vh, 5px); border-radius: 3px; margin: 2.5% auto; }
 
 /* --- Next Stop --- */
 .fare-bar {
@@ -128,37 +127,40 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .route-banner .dest { padding: 1.2% 3%; align-self: center; }
 .route-banner .route-badge { background: var(--c-accent); color: #1a1a1a; display: flex; align-items: center; padding: 0 3%; font-weight: 900; font-size: 1.1em; }
 .list-body { flex: 1; position: relative; display: flex; }
-.rail-zone { position: relative; flex: none; width: clamp(110px, 16vw, 230px); }
+.rail-zone { position: relative; flex: none; width: clamp(120px, 17vw, 250px); }
 .rail-zone .rail-band { position: absolute; inset: 0; width: 100%; height: 100%; }
 .rail-zone .dot {
   position: absolute; transform: translate(-50%, -50%);
-  width: clamp(30px, 4vw, 56px); height: clamp(18px, 2.6vw, 34px); border-radius: 50%;
-  background: radial-gradient(circle at 42% 34%, #ff9f30, #d2670f);
-  box-shadow: 0 0 0 4px rgba(0,0,0,0.55);
+  width: clamp(42px, 5.6vw, 84px); height: clamp(26px, 3.6vw, 52px); border-radius: 50%;
+  background: radial-gradient(circle at 45% 35%, #ffb143, #e07910);
+  border: clamp(3px, 0.5vw, 6px) solid #bb5a10; box-sizing: border-box;
 }
 .rail-zone .next-circle {
   position: absolute; transform: translate(-50%, -50%);
-  width: clamp(54px, 7.4vw, 104px); height: clamp(54px, 7.4vw, 104px); border-radius: 50%;
+  width: clamp(58px, 8vw, 116px); height: clamp(58px, 8vw, 116px); border-radius: 50%;
   background: #1ec1bd; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  font-weight: 800; font-size: clamp(13px, 1.9vw, 26px); line-height: 1.05; text-align: center;
-  box-shadow: 0 0 0 4px rgba(0,0,0,0.55);
+  font-weight: 800; font-size: clamp(14px, 2vw, 28px); line-height: 1.05; text-align: center;
+  border: clamp(3px, 0.5vw, 6px) solid #0e6f6c; box-sizing: border-box;
 }
 .rail-zone .next-circle .next-en { font-size: 0.46em; font-weight: 700; margin-top: 0.2em; }
-.rail-zone .connector { position: absolute; height: clamp(4px, 0.7vh, 8px); right: 0; background: rgba(255,255,255,0.85); transform: translateY(-50%); }
+.rail-zone .connector { position: absolute; height: clamp(4px, 0.7vh, 8px); right: 0; background: rgba(255,255,255,0.9); transform: translateY(-50%); }
 
 .rows { flex: 1; display: flex; flex-direction: column; padding: 1.5% 3% 1.5% 0; min-width: 0; }
 .list-row { flex: 1; position: relative; overflow: hidden; }
 /* The connector line from the dot becomes the separator between zh (above) and en (below). */
-.list-row .row-sep { position: absolute; left: 0; right: 3%; top: 50%; transform: translateY(-50%); height: clamp(4px, 0.7vh, 8px); background: rgba(255,255,255,0.85); }
+.list-row .row-sep { position: absolute; left: 0; right: 3%; top: 50%; transform: translateY(-50%); height: clamp(4px, 0.7vh, 8px); background: rgba(255,255,255,0.9); }
 .list-row .row-top { position: absolute; left: 0; right: 3%; bottom: 50%; display: flex; align-items: flex-end; justify-content: space-between; gap: 4%; padding: 0 0 clamp(3px, 0.7vh, 10px) 1.5%; }
-.list-row .row-en { position: absolute; left: 0; right: 3%; top: 50%; padding: clamp(3px, 0.7vh, 10px) 0 0 1.5%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.row-zh { font-size: clamp(18px, 3.6vw, 46px); font-weight: 800; display: flex; align-items: center; gap: 0.3em; line-height: 1; white-space: nowrap; min-width: 0; overflow: hidden; }
-.row-ja { font-size: clamp(12px, 2.1vw, 26px); opacity: 0.85; white-space: nowrap; line-height: 1; flex: none; }
-.row-en { font-size: clamp(12px, 2.4vw, 28px); opacity: 0.85; }
-.list-row.next .row-zh { color: #1ec1bd; font-size: clamp(22px, 4.2vw, 56px); }
-.list-row.next .row-ja { color: #1ec1bd; font-size: clamp(13px, 2.4vw, 30px); }
+.list-row .row-en-box { position: absolute; left: 0; right: 3%; top: 50%; padding: clamp(3px, 0.7vh, 10px) 0 0 1.5%; }
+.zh-wrap { flex: 1 1 auto; min-width: 0; }
+.ja-wrap { flex: 0 1 auto; max-width: 42%; }
+.row-zh { font-weight: 800; line-height: 1; }
+.row-zh .row-transfers { font-size: 0.7em; }
+.row-ja { opacity: 0.85; line-height: 1; }
+.row-en { opacity: 0.85; }
+.list-row.next .row-zh { color: #1ec1bd; }
+.list-row.next .row-ja { color: #1ec1bd; }
 .list-row.next .row-en { color: #1ec1bd; }
-.row-transfers { display: inline-flex; gap: 0.2em; flex: none; }
+.row-transfers { display: inline-flex; gap: 0.2em; vertical-align: middle; margin-left: 0.25em; }
 .transfer-icon { background: #d7d7d7; color: #111; border-radius: 6px; padding: 0 0.2em; font-size: 0.8em; }
 
 /* --- Transfer --- */
