@@ -19,18 +19,34 @@ export function unlockAudio(): void {
   if (c && c.state === "suspended") void c.resume();
 }
 
-function tone(c: AudioContext, freq: number, at: number, dur: number, peak = 0.3): void {
-  const osc = c.createOscillator();
+function tone(c: AudioContext, freq: number, at: number, dur: number, peak = 0.22): void {
+  // Electronic timbre: a square wave (buzzy, synth-like) plus a triangle an
+  // octave below for body — deliberately NOT a pure sine bell/xylophone tone.
   const gain = c.createGain();
-  osc.type = "sine";
-  osc.frequency.value = freq;
-  osc.connect(gain);
   gain.connect(c.destination);
+
+  const main = c.createOscillator();
+  main.type = "square";
+  main.frequency.value = freq;
+  main.connect(gain);
+
+  const sub = c.createOscillator();
+  sub.type = "triangle";
+  sub.frequency.value = freq / 2;
+  const subGain = c.createGain();
+  subGain.gain.value = 0.5;
+  sub.connect(subGain);
+  subGain.connect(gain);
+
   gain.gain.setValueAtTime(0.0001, at);
-  gain.gain.linearRampToValueAtTime(peak, at + 0.02);
+  gain.gain.linearRampToValueAtTime(peak, at + 0.012);
+  gain.gain.setValueAtTime(peak, at + dur * 0.5);
   gain.gain.exponentialRampToValueAtTime(0.0001, at + dur);
-  osc.start(at);
-  osc.stop(at + dur + 0.05);
+
+  main.start(at);
+  sub.start(at);
+  main.stop(at + dur + 0.05);
+  sub.stop(at + dur + 0.05);
 }
 
 /** Play the selected chime; resolves when it has finished. */
