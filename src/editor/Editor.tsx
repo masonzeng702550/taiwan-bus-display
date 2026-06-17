@@ -37,6 +37,16 @@ export function Editor({
   const [bulkBusy, setBulkBusy] = useState(false);
   useVoices(); // re-render once the browser's voice list is ready
 
+  // Sample picker: choose country -> city -> route.
+  const countries = Array.from(new Set(SAMPLE_ROUTES.map((s) => s.route.region?.country ?? "台灣")));
+  const citiesFor = (c: string) =>
+    Array.from(new Set(SAMPLE_ROUTES.filter((s) => (s.route.region?.country ?? "台灣") === c).map((s) => s.route.region?.city ?? "其他")));
+  const [pickCountry, setPickCountry] = useState(countries[0]);
+  const [pickCity, setPickCity] = useState(citiesFor(countries[0])[0]);
+  const routeChoices = SAMPLE_ROUTES.filter(
+    (s) => (s.route.region?.country ?? "台灣") === pickCountry && (s.route.region?.city ?? "其他") === pickCity,
+  );
+
   const setVoice = (lang: Lang, voiceURI: string) =>
     update({ settings: { ...route.settings, voices: { ...route.settings.voices, [lang]: voiceURI } } });
 
@@ -81,16 +91,23 @@ export function Editor({
       <header className="editor-top">
         <h1>台灣巴士車內資訊顯示系統</h1>
         <div className="top-actions">
+          <select value={pickCountry} title="國家" onChange={(e) => { setPickCountry(e.target.value); setPickCity(citiesFor(e.target.value)[0]); }}>
+            {countries.map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
+          <select value={pickCity} title="城市" onChange={(e) => setPickCity(e.target.value)}>
+            {citiesFor(pickCountry).map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
           <select
-            defaultValue=""
+            value=""
+            title="載入路線"
             onChange={(e) => {
-              const s = SAMPLE_ROUTES[+e.target.value];
+              const s = routeChoices[+e.target.value];
               if (s) onChange(structuredClone(s.route));
               e.target.value = "";
             }}
           >
-            <option value="" disabled>載入範例…</option>
-            {SAMPLE_ROUTES.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
+            <option value="" disabled>載入路線…</option>
+            {routeChoices.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
           </select>
           <button onClick={() => { saveRoute(route); }}>儲存</button>
           <button onClick={() => exportRoute(route)}>匯出 JSON</button>
@@ -138,6 +155,12 @@ export function Editor({
               <option value="inbound">返程</option>
             </select>
           </label>
+          <label>顯示語言
+            <select value={route.locale ?? "zh"} onChange={(e) => update({ locale: e.target.value as "zh" | "ja" })}>
+              <option value="zh">中文為主（右側日文）</option>
+              <option value="ja">日文為主（右側平假名）</option>
+            </select>
+          </label>
           <label>終點（中）<input value={route.route.destination.zh} onChange={(e) => update({ route: { ...route.route, destination: { ...route.route.destination, zh: e.target.value } } })} /></label>
           <label>終點（英）<input value={route.route.destination.en} onChange={(e) => update({ route: { ...route.route, destination: { ...route.route.destination, en: e.target.value } } })} /></label>
           <label>終點（日）<input value={route.route.destination.ja} onChange={(e) => update({ route: { ...route.route, destination: { ...route.route.destination, ja: e.target.value } } })} /></label>
@@ -147,7 +170,7 @@ export function Editor({
         <section className="panel preview" style={cssVars}>
           <h2>即時預覽（下一站）</h2>
           <div className="preview-frame">
-            {route.stops[0] && <NextStop route={route} stop={route.stops[0]} />}
+            {route.stops[0] && <NextStop route={route} stop={route.stops[0]} locale={route.locale ?? "zh"} />}
           </div>
         </section>
       </div>
