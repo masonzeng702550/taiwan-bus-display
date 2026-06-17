@@ -124,29 +124,31 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 }
 .route-banner .dest { padding: 1.2% 3%; align-self: center; }
 .route-banner .route-badge { background: var(--c-accent); color: #1a1a1a; display: flex; align-items: center; padding: 0 3%; font-weight: 900; font-size: 1.1em; }
-.list-body { flex: 1; position: relative; }
-.list-body .rail { position: absolute; left: 0; top: 0; height: 100%; width: clamp(70px, 11vw, 150px); }
-.list-body .rows { position: relative; height: 100%; padding: 1% 4% 1% 0; padding-left: clamp(70px, 11vw, 150px); display: flex; flex-direction: column; }
-.list-row { flex: 1; display: grid; grid-template-columns: 0 1fr; align-items: center; }
-.list-row .marker { position: relative; }
-.list-row .dot {
-  position: absolute; right: clamp(8px, 1.4vw, 18px); top: 50%; transform: translateY(-50%);
-  width: clamp(26px, 4vw, 56px); height: clamp(16px, 2.6vw, 34px); border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #ff9e2c, #d96f12);
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.5);
+.list-body { flex: 1; position: relative; display: flex; }
+.rail-zone { position: relative; flex: none; width: clamp(110px, 16vw, 230px); }
+.rail-zone .rail-band { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rail-zone .dot {
+  position: absolute; transform: translate(-50%, -50%);
+  width: clamp(30px, 4vw, 56px); height: clamp(18px, 2.6vw, 34px); border-radius: 50%;
+  background: radial-gradient(circle at 42% 34%, #ff9f30, #d2670f);
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.55);
 }
-.next-circle {
-  position: absolute; right: clamp(2px, 0.6vw, 10px); top: 50%; transform: translateY(-50%);
-  width: clamp(48px, 7vw, 96px); height: clamp(48px, 7vw, 96px); border-radius: 50%;
-  background: #19c0bd; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  font-weight: 800; font-size: clamp(13px, 1.8vw, 24px); line-height: 1; box-shadow: 0 0 0 3px rgba(0,0,0,0.5);
+.rail-zone .next-circle {
+  position: absolute; transform: translate(-50%, -50%);
+  width: clamp(54px, 7.4vw, 104px); height: clamp(54px, 7.4vw, 104px); border-radius: 50%;
+  background: #1ec1bd; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: 800; font-size: clamp(13px, 1.9vw, 26px); line-height: 1.05; text-align: center;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.55);
 }
-.next-circle .next-en { font-size: 0.5em; font-weight: 700; margin-top: 0.25em; }
-.row-text { padding-left: clamp(8px, 1.5vw, 22px); }
+.rail-zone .next-circle .next-en { font-size: 0.46em; font-weight: 700; margin-top: 0.2em; }
+.rail-zone .connector { position: absolute; height: 3px; right: 0; background: rgba(255,255,255,0.8); transform: translateY(-50%); }
+
+.rows { flex: 1; display: flex; flex-direction: column; padding: 1.5% 3% 1.5% 1.5%; min-width: 0; }
+.list-row { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .row-name { font-size: clamp(20px, 5vw, 60px); font-weight: 800; display: flex; align-items: center; gap: 0.4em; }
 .row-en { font-size: clamp(12px, 2.6vw, 30px); opacity: 0.85; }
-.list-row.next .row-name { color: #19c0bd; font-size: clamp(26px, 6.2vw, 76px); }
-.list-row.next .row-en { color: #19c0bd; }
+.list-row.next .row-name { color: #1ec1bd; font-size: clamp(26px, 6.2vw, 76px); }
+.list-row.next .row-en { color: #1ec1bd; }
 .row-transfers { display: inline-flex; gap: 0.2em; }
 .transfer-icon { background: #d7d7d7; color: #111; border-radius: 6px; padding: 0 0.2em; font-size: 0.8em; }
 
