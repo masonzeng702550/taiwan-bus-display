@@ -1,12 +1,13 @@
 import type { RouteFile } from "../../types";
 import { TransferIcon } from "../icons";
 import { FitText } from "../FitText";
+import { primaryText, readingText, subText, type Locale } from "../display";
 
 // "Stop List" screen. The left rail matches the reference Kyoto layout: a thick
 // curved golden band, large orange ovals (dark-outlined) sitting on it stepping
 // down-and-left, and the next stop's teal circle at the bottom. Connector lines
 // run right to each station name and become the separator between zh and en.
-export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: number }) {
+export function StopList({ route, currentSeq, locale }: { route: RouteFile; currentSeq: number; locale: Locale }) {
   const count = route.settings.stopListCount;
   const upcoming = route.stops.filter((s) => s.seq >= currentSeq).slice(0, count);
   // Render far -> near (top to bottom); the last item is the next stop.
@@ -35,7 +36,7 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
   return (
     <div className="screen stop-list">
       <div className="route-banner">
-        <span className="dest">{route.route.destination.zh}　行き</span>
+        <span className="dest">{primaryText(route.route.destination, locale)}　行き</span>
         <span className="route-badge">{route.route.number}</span>
       </div>
       <div className="list-body">
@@ -76,8 +77,8 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
               <div key={s.seq} className={`list-row${isNext ? " next" : ""}`}>
                 <div className="row-top">
                   <div className="zh-wrap">
-                    <FitText className="row-zh" max={isNext ? 72 : 54} recalcKey={s.name.zh}>
-                      {s.name.zh}
+                    <FitText className="row-zh" max={isNext ? 72 : 54} recalcKey={primaryText(s.name, locale)}>
+                      {primaryText(s.name, locale)}
                       {s.transfers?.length ? (
                         <span className="row-transfers">
                           {s.transfers.map((t, i) => (
@@ -87,18 +88,18 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
                       ) : null}
                     </FitText>
                   </div>
-                  {s.name.ja && (
+                  {readingText(s.name, locale) && (
                     <div className="ja-wrap">
-                      <FitText className="row-ja" max={isNext ? 32 : 27} recalcKey={s.name.ja}>
-                        {s.name.ja}
+                      <FitText className="row-ja" max={isNext ? 32 : 27} recalcKey={readingText(s.name, locale)}>
+                        {readingText(s.name, locale)}
                       </FitText>
                     </div>
                   )}
                 </div>
                 <div className="row-sep" />
                 <div className="row-en-box">
-                  <FitText className="row-en" max={isNext ? 34 : 28} recalcKey={s.name.en}>
-                    {s.name.en}
+                  <FitText className="row-en" max={isNext ? 34 : 28} recalcKey={subText(s.name)}>
+                    {subText(s.name)}
                   </FitText>
                 </div>
               </div>

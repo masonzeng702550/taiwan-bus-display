@@ -66,6 +66,11 @@ export interface PlaybackSettings {
 
 export interface RouteFile {
   schemaVersion: 1;
+  /** Country + city for the sample picker; e.g. { country: "台灣", city: "台北市" }. */
+  region?: { country: string; city: string };
+  /** Primary display/announcement language. "zh" = Taiwan style (Chinese big,
+   *  Japanese on the right), "ja" = Japan style (Japanese big, hiragana on the right). */
+  locale?: "zh" | "ja";
   operator: { id: string; name: I18n; themeId: string };
   theme: Theme;
   route: {

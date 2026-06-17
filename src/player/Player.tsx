@@ -29,6 +29,7 @@ export function Player({ route, onExit }: { route: RouteFile; onExit: () => void
   const [page, setPage] = useState<Page>("nextStop");
   const [transferIdx, setTransferIdx] = useState(0);
 
+  const locale = route.locale ?? "zh";
   const lastSeq = route.stops[route.stops.length - 1]?.seq ?? 1;
   const currentStop = useMemo(
     () => route.stops.find((s) => s.seq === currentSeq) ?? route.stops[0],
@@ -144,9 +145,9 @@ export function Player({ route, onExit }: { route: RouteFile; onExit: () => void
         </div>
       ) : (
         <>
-          {page === "nextStop" && currentStop && <NextStop route={route} stop={currentStop} />}
-          {page === "stopList" && <StopList route={route} currentSeq={currentSeq} />}
-          {page === "transfer" && transfers[transferIdx] && <Transfer transfer={transfers[transferIdx]} />}
+          {page === "nextStop" && currentStop && <NextStop route={route} stop={currentStop} locale={locale} />}
+          {page === "stopList" && <StopList route={route} currentSeq={currentSeq} locale={locale} />}
+          {page === "transfer" && transfers[transferIdx] && <Transfer transfer={transfers[transferIdx]} locale={locale} />}
           <div className="player-hud">
             <span>{mode === "gps" ? "GPS" : "手動"}{paused ? " · 暫停" : ""}{isFullscreen ? "" : " · 視窗"}</span>
             <button className="link-btn" onClick={onExit}>← 設定</button>
