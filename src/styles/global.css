@@ -102,8 +102,8 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .fit { line-height: 1.05; word-break: break-word; }
 .accent-line, .divider-line { height: 4px; background: var(--c-accent); border-radius: 4px; margin: 2% 8%; }
 .divider-line { background: var(--c-primary); }
-/* Next Stop divider: thin, horizontally-centred purple line. */
-.next-stop .divider-line { align-self: center; width: 70%; height: clamp(3px, 0.5vh, 5px); border-radius: 3px; margin: 2.5% auto; }
+/* Next Stop divider: thin purple line pinned to the box's exact centre (both axes). */
+.next-stop .divider-line { position: absolute; left: 15%; right: 15%; top: 50%; transform: translateY(-50%); width: auto; height: clamp(3px, 0.5vh, 5px); border-radius: 3px; margin: 0; }
 
 /* --- Next Stop --- */
 .fare-bar {
@@ -114,9 +114,10 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .fare-bar small { font-size: 0.55em; font-weight: 600; opacity: 0.9; }
 .next-stop .next-label { font-size: clamp(16px, 3.5vw, 40px); font-weight: 700; padding: 2% 4% 0; }
 .next-stop .next-label small { font-weight: 600; opacity: 0.85; margin-left: 8px; }
-.next-box { flex: 1; margin: 2% 4% 4%; border: 3px solid var(--c-text); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.stop-zh { font-size: clamp(30px, 6.4vw, 86px); font-weight: 800; letter-spacing: 0.04em; text-align: center; padding: 0 3%; line-height: 1.12; }
-.stop-en { font-size: clamp(15px, 3.6vw, 46px); font-weight: 600; text-align: center; }
+/* Box centres on the line: zh sits above the mid-line, en below it. */
+.next-box { flex: 1; margin: 2% 4% 4%; border: 3px solid var(--c-text); border-radius: 8px; position: relative; }
+.stop-zh { position: absolute; left: 0; right: 0; bottom: 50%; font-weight: 800; letter-spacing: 0.04em; text-align: center; padding: 0 4% clamp(6px, 1.4vh, 20px); line-height: 1.1; }
+.stop-en { position: absolute; left: 0; right: 0; top: 50%; font-weight: 600; text-align: center; padding: clamp(6px, 1.4vh, 20px) 4% 0; }
 
 /* --- Stop List --- */
 .route-banner {
