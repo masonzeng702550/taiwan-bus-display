@@ -41,6 +41,21 @@ export function routeStart(route: RouteFile, lang: Lang): string {
 
 export function nextStop(stop: Stop, lang: Lang, arrived = false): string {
   const name = spoken(stop.name, lang);
+  if (stop.isTerminal) {
+    // Terminal stop gets a distinct "final stop / please alight" announcement.
+    switch (lang) {
+      case "zh":
+        return arrived ? `終點站，${name}到了，請所有旅客下車。` : `下一站，${name}，為本班車終點站。`;
+      case "en":
+        return arrived
+          ? `This is the final stop, ${name}. Please alight. Thank you for riding.`
+          : `The next stop, ${name}, is the last stop on this route.`;
+      case "ja":
+        return arrived
+          ? `終点、${name}です。ご乗車ありがとうございました。`
+          : `次は、終点、${name}です。`;
+    }
+  }
   switch (lang) {
     case "zh":
       return arrived ? `${name}到了。` : `下一站，${name}。`;

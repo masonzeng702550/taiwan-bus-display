@@ -148,12 +148,17 @@ export function announceRouteStart(route: RouteFile): Promise<void> {
 
 export async function announceNextStop(route: RouteFile, stop: Stop, arrived = false): Promise<void> {
   const langs = pickLangs(route);
+  const isTransferStop = !!stop.transfers?.length;
   const phrases: Phrase[] = [];
   for (const lang of langs) {
     const voiceName = voiceFor(route, lang);
     phrases.push({ lang, text: nextStop(stop, lang, arrived), voiceName });
     for (const t of stop.transfers ?? []) {
       phrases.push({ lang, text: transferLine(t, lang), voiceName });
+    }
+    // At important (transfer) stops, re-introduce the route after the stop info.
+    if (isTransferStop) {
+      phrases.push({ lang, text: routeStart(route, lang), voiceName });
     }
   }
   await playChime(route.settings.chime ?? "dingdong"); // chime before the next-stop announcement
