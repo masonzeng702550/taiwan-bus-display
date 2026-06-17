@@ -127,7 +127,9 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 }
 .route-banner .dest { padding: 1.2% 3%; align-self: center; }
 .route-banner .route-badge { background: var(--c-accent); color: #1a1a1a; display: flex; align-items: center; padding: 0 3%; font-weight: 900; font-size: 1.1em; }
-.list-body { flex: 1; position: relative; display: flex; }
+/* Vertical padding lives on the shared parent so the rail markers and the row
+   separator lines share one coordinate system and the connectors stay continuous. */
+.list-body { flex: 1; position: relative; display: flex; padding: 1.4% 0; }
 .rail-zone { position: relative; flex: none; width: clamp(120px, 17vw, 250px); }
 .rail-zone .rail-band { position: absolute; inset: 0; width: 100%; height: 100%; }
 .rail-zone .dot {
@@ -146,7 +148,7 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .rail-zone .next-circle .next-en { font-size: 0.46em; font-weight: 700; margin-top: 0.2em; }
 .rail-zone .connector { position: absolute; height: clamp(4px, 0.7vh, 8px); right: 0; background: rgba(255,255,255,0.9); transform: translateY(-50%); }
 
-.rows { flex: 1; display: flex; flex-direction: column; padding: 1.5% 3% 1.5% 0; min-width: 0; }
+.rows { flex: 1; display: flex; flex-direction: column; padding: 0 3% 0 0; min-width: 0; }
 .list-row { flex: 1; position: relative; overflow: hidden; }
 /* The connector line from the dot becomes the separator between zh (above) and en (below). */
 .list-row .row-sep { position: absolute; left: 0; right: 3%; top: 50%; transform: translateY(-50%); height: clamp(4px, 0.7vh, 8px); background: rgba(255,255,255,0.9); }
