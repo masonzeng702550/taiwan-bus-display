@@ -1,5 +1,6 @@
 import type { Lang, RouteFile, Stop } from "../types";
 import { localeFor, nextStop, routeStart, transferLine } from "./templates";
+import { playChime } from "./chime";
 
 // Sequential speech engine built on the Web Speech API (SpeechSynthesis).
 // Phrases play one after another (never overlapping); a new request cancels
@@ -132,7 +133,7 @@ export function announceRouteStart(route: RouteFile): Promise<void> {
   );
 }
 
-export function announceNextStop(route: RouteFile, stop: Stop, arrived = false): Promise<void> {
+export async function announceNextStop(route: RouteFile, stop: Stop, arrived = false): Promise<void> {
   const langs = pickLangs(route);
   const phrases: Phrase[] = [];
   for (const lang of langs) {
@@ -142,6 +143,7 @@ export function announceNextStop(route: RouteFile, stop: Stop, arrived = false):
       phrases.push({ lang, text: transferLine(t, lang), voiceName });
     }
   }
+  await playChime(); // "ding-dong" before the next-stop announcement
   return speakSequence(phrases, route.settings.ttsRate);
 }
 

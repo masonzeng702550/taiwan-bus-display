@@ -8,6 +8,7 @@ import {
   cancel,
   ttsSupported,
 } from "../tts/engine";
+import { unlockAudio } from "../tts/chime";
 import { useFullscreen } from "./hooks/useFullscreen";
 import { useKeyboard } from "./hooks/useKeyboard";
 import { useGeolocation } from "./hooks/useGeolocation";
@@ -115,7 +116,8 @@ export function Player({ route, onExit }: { route: RouteFile; onExit: () => void
 
   const handleStart = () => {
     setStarted(true);
-    // First user gesture unlocks audio; greet then announce the first stop.
+    // First user gesture unlocks audio (TTS + Web Audio chime).
+    unlockAudio();
     void announceRouteStart(route).then(() => announce(false));
     void rootRef.current?.requestFullscreen?.().catch(() => {});
   };
