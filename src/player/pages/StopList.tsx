@@ -13,7 +13,7 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
   const n = rows.length;
 
   // Marker horizontal position (% of rail zone): top is rightmost, bottom-left.
-  const markerX = (idx: number) => (n > 1 ? 62 - (idx / (n - 1)) * 46 : 40);
+  const markerX = (idx: number) => (n > 1 ? 70 - (idx / (n - 1)) * 46 : 42);
   const rowY = (idx: number) => ((idx + 0.5) / n) * 100;
 
   return (
@@ -32,7 +32,7 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
                 <stop offset="100%" stopColor="#5e4f12" />
               </linearGradient>
             </defs>
-            <path d="M70,-2 C44,22 26,56 14,102 L44,102 C30,56 52,22 84,-2 Z" fill="url(#railFill)" />
+            <path d="M64,-3 C38,22 20,56 4,103 L54,103 C38,56 62,22 90,-3 Z" fill="url(#railFill)" />
           </svg>
           {rows.map((s, idx) => {
             const isNext = idx === n - 1;
@@ -60,16 +60,20 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
             const isNext = idx === n - 1;
             return (
               <div key={s.seq} className={`list-row${isNext ? " next" : ""}`}>
-                <div className="row-name">
-                  {s.name.zh}
-                  {s.transfers?.length ? (
-                    <span className="row-transfers">
-                      {s.transfers.map((t, i) => (
-                        <TransferIcon key={i} type={t.type} />
-                      ))}
-                    </span>
-                  ) : null}
+                <div className="row-top">
+                  <span className="row-zh">
+                    {s.name.zh}
+                    {s.transfers?.length ? (
+                      <span className="row-transfers">
+                        {s.transfers.map((t, i) => (
+                          <TransferIcon key={i} type={t.type} />
+                        ))}
+                      </span>
+                    ) : null}
+                  </span>
+                  {s.name.ja && <span className="row-ja">{s.name.ja}</span>}
                 </div>
+                <div className="row-sep" />
                 <div className="row-en">{s.name.en}</div>
               </div>
             );

@@ -102,6 +102,9 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .fit { line-height: 1.05; word-break: break-word; }
 .accent-line, .divider-line { height: 4px; background: var(--c-accent); border-radius: 4px; margin: 2% 8%; }
 .divider-line { background: var(--c-primary); }
+/* Next Stop divider: thin, left-anchored purple line (the box centres its
+   children, so stretch it and offset with margins instead of relying on width). */
+.next-stop .divider-line { align-self: stretch; height: clamp(3px, 0.5vh, 5px); border-radius: 3px; margin: 2.5% 26% 2.5% 6%; }
 
 /* --- Next Stop --- */
 .fare-bar {
@@ -113,8 +116,8 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .next-stop .next-label { font-size: clamp(16px, 3.5vw, 40px); font-weight: 700; padding: 2% 4% 0; }
 .next-stop .next-label small { font-weight: 600; opacity: 0.85; margin-left: 8px; }
 .next-box { flex: 1; margin: 2% 4% 4%; border: 3px solid var(--c-text); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.stop-zh { font-size: clamp(40px, 11vw, 150px); font-weight: 800; letter-spacing: 0.05em; text-align: center; padding: 0 4%; }
-.stop-en { font-size: clamp(20px, 5vw, 64px); font-weight: 600; text-align: center; }
+.stop-zh { font-size: clamp(30px, 6.4vw, 86px); font-weight: 800; letter-spacing: 0.04em; text-align: center; padding: 0 3%; line-height: 1.12; }
+.stop-en { font-size: clamp(15px, 3.6vw, 46px); font-weight: 600; text-align: center; }
 
 /* --- Stop List --- */
 .route-banner {
@@ -141,15 +144,21 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
   box-shadow: 0 0 0 4px rgba(0,0,0,0.55);
 }
 .rail-zone .next-circle .next-en { font-size: 0.46em; font-weight: 700; margin-top: 0.2em; }
-.rail-zone .connector { position: absolute; height: 3px; right: 0; background: rgba(255,255,255,0.8); transform: translateY(-50%); }
+.rail-zone .connector { position: absolute; height: clamp(4px, 0.7vh, 8px); right: 0; background: rgba(255,255,255,0.85); transform: translateY(-50%); }
 
-.rows { flex: 1; display: flex; flex-direction: column; padding: 1.5% 3% 1.5% 1.5%; min-width: 0; }
-.list-row { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.row-name { font-size: clamp(20px, 5vw, 60px); font-weight: 800; display: flex; align-items: center; gap: 0.4em; }
-.row-en { font-size: clamp(12px, 2.6vw, 30px); opacity: 0.85; }
-.list-row.next .row-name { color: #1ec1bd; font-size: clamp(26px, 6.2vw, 76px); }
+.rows { flex: 1; display: flex; flex-direction: column; padding: 1.5% 3% 1.5% 0; min-width: 0; }
+.list-row { flex: 1; position: relative; overflow: hidden; }
+/* The connector line from the dot becomes the separator between zh (above) and en (below). */
+.list-row .row-sep { position: absolute; left: 0; right: 3%; top: 50%; transform: translateY(-50%); height: clamp(4px, 0.7vh, 8px); background: rgba(255,255,255,0.85); }
+.list-row .row-top { position: absolute; left: 0; right: 3%; bottom: 50%; display: flex; align-items: flex-end; justify-content: space-between; gap: 4%; padding: 0 0 clamp(3px, 0.7vh, 10px) 1.5%; }
+.list-row .row-en { position: absolute; left: 0; right: 3%; top: 50%; padding: clamp(3px, 0.7vh, 10px) 0 0 1.5%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row-zh { font-size: clamp(18px, 3.6vw, 46px); font-weight: 800; display: flex; align-items: center; gap: 0.3em; line-height: 1; white-space: nowrap; min-width: 0; overflow: hidden; }
+.row-ja { font-size: clamp(12px, 2.1vw, 26px); opacity: 0.85; white-space: nowrap; line-height: 1; flex: none; }
+.row-en { font-size: clamp(12px, 2.4vw, 28px); opacity: 0.85; }
+.list-row.next .row-zh { color: #1ec1bd; font-size: clamp(22px, 4.2vw, 56px); }
+.list-row.next .row-ja { color: #1ec1bd; font-size: clamp(13px, 2.4vw, 30px); }
 .list-row.next .row-en { color: #1ec1bd; }
-.row-transfers { display: inline-flex; gap: 0.2em; }
+.row-transfers { display: inline-flex; gap: 0.2em; flex: none; }
 .transfer-icon { background: #d7d7d7; color: #111; border-radius: 6px; padding: 0 0.2em; font-size: 0.8em; }
 
 /* --- Transfer --- */
