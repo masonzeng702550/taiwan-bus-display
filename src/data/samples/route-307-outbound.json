@@ -1,5 +1,7 @@
 {
   "schemaVersion": 1,
+  "region": { "country": "台灣", "city": "台北市" },
+  "locale": "zh",
   "operator": {
     "id": "tpe-union",
     "name": { "zh": "臺北客運", "en": "Taipei Bus", "ja": "台北客運" },

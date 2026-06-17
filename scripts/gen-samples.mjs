@@ -36,7 +36,7 @@ function makeStop(seq, zh, en) {
   return stop;
 }
 
-function buildRoute({ number, routeName, operatorKey, direction, stopsZh, stopsEn, showFare = true }) {
+function buildRoute({ number, routeName, operatorKey, direction, stopsZh, stopsEn, showFare = true, city = "新北市" }) {
   const op = OPERATORS[operatorKey];
   const stops = stopsZh.map((zh, i) => makeStop(i + 1, zh, stopsEn ? stopsEn[i] : ""));
   stops[stops.length - 1].isTerminal = true;
@@ -44,6 +44,8 @@ function buildRoute({ number, routeName, operatorKey, direction, stopsZh, stopsE
   const destEn = stopsEn ? stopsEn[stopsEn.length - 1] : "";
   return {
     schemaVersion: 1,
+    region: { country: "台灣", city },
+    locale: "zh",
     operator: { id: op.id, name: op.name, themeId: op.theme },
     theme: THEMES[op.theme],
     route: {
@@ -95,8 +97,8 @@ const routes = [
   buildRoute({ number: "265區", routeName: { zh: "265 區間車", en: "Route 265 (Zone)", ja: "265系統 区間" }, operatorKey: "sanchong", direction: "inbound", stopsZh: R265_IN }),
   buildRoute({ number: "1962", routeName: { zh: "1962", en: "Route 1962", ja: "1962系統" }, operatorKey: "dayou", direction: "outbound", stopsZh: R1962_OUT_ZH, stopsEn: R1962_OUT_EN, showFare: false }),
   buildRoute({ number: "1962", routeName: { zh: "1962", en: "Route 1962", ja: "1962系統" }, operatorKey: "dayou", direction: "inbound", stopsZh: R1962_IN_ZH, stopsEn: R1962_IN_EN, showFare: false }),
-  buildRoute({ number: "1813", routeName: { zh: "1813", en: "Route 1813", ja: "1813系統" }, operatorKey: "kuokuang", direction: "outbound", stopsZh: R1813_OUT_ZH, stopsEn: R1813_OUT_EN, showFare: false }),
-  buildRoute({ number: "1813", routeName: { zh: "1813", en: "Route 1813", ja: "1813系統" }, operatorKey: "kuokuang", direction: "inbound", stopsZh: R1813_IN_ZH, stopsEn: R1813_IN_EN, showFare: false }),
+  buildRoute({ number: "1813", routeName: { zh: "1813", en: "Route 1813", ja: "1813系統" }, operatorKey: "kuokuang", direction: "outbound", stopsZh: R1813_OUT_ZH, stopsEn: R1813_OUT_EN, showFare: false, city: "台北市" }),
+  buildRoute({ number: "1813", routeName: { zh: "1813", en: "Route 1813", ja: "1813系統" }, operatorKey: "kuokuang", direction: "inbound", stopsZh: R1813_IN_ZH, stopsEn: R1813_IN_EN, showFare: false, city: "台北市" }),
 ];
 
 for (const r of routes) {

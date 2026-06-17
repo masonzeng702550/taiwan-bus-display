@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "region": {
+    "country": "日本",
+    "city": "京都市"
+  },
+  "locale": "ja",
+  "operator": {
+    "id": "teal",
+    "name": {
+      "zh": "京都市公車",
+      "en": "Kyoto City Bus",
+      "ja": "京都市営バス"
+    },
+    "themeId": "teal"
+  },
+  "theme": {
+    "id": "teal",
+    "name": "通用 · 青綠",
+    "primary": "#008c8c",
+    "headerGradient": [
+      "#00696e",
+      "#00b3a6"
+    ],
+    "accent": "#ffd200",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#008c8c"
+  },
+  "route": {
+    "id": "205",
+    "number": "205",
+    "name": {
+      "zh": "205系統",
+      "en": "Route 205",
+      "ja": "205系統"
+    },
+    "direction": "outbound",
+    "destination": {
+      "zh": "烏丸北大路〔北大路駅前〕",
+      "en": "Karasuma Kitaoji",
+      "ja": "烏丸北大路〔北大路駅前〕",
+      "jaReading": "からすまきたおおじ"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "ja",
+      "en",
+      "zh"
+    ],
+    "ttsRate": 1,
+    "showFare": true,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    },
+    "chime": "dingdong"
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "九条車庫前",
+        "en": "Kujo Shako-mae",
+        "ja": "九条車庫前",
+        "jaReading": "くじょうしゃこまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "東寺道",
+        "en": "Toji-michi",
+        "ja": "東寺道",
+        "jaReading": "とうじみち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "下京区総合庁舎前",
+        "en": "Shimogyo-ku Sogo Chosha-mae",
+        "ja": "下京区総合庁舎前",
+        "jaReading": "しもぎょうくそうごうちょうしゃまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "京都駅前",
+        "en": "Kyoto Eki-mae",
+        "ja": "京都駅前",
+        "jaReading": "きょうとえきまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "烏丸七条",
+        "en": "Karasuma Shichijo",
+        "ja": "烏丸七条",
+        "jaReading": "からすまななじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "七条西洞院",
+        "en": "Shichijo Nishinotoin",
+        "ja": "七条西洞院",
+        "jaReading": "しちじょうにしのとういん"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "七条堀川",
+        "en": "Shichijo Horikawa",
+        "ja": "七条堀川",
+        "jaReading": "しちじょうほりかわ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "七条大宮・京都水族館前",
+        "en": "Shichijo Omiya / Kyoto Aquarium",
+        "ja": "七条大宮・京都水族館前",
+        "jaReading": "しちじょうおおみや・きょうとすいぞくかんまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "七条壬生川",
+        "en": "Shichijo Mibugawa",
+        "ja": "七条壬生川",
+        "jaReading": "しちじょうみぶがわ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "梅小路公園・ＪＲ梅小路京都西駅前",
+        "en": "Umekoji Park / JR Umekoji-Kyotonishi Sta.",
+        "ja": "梅小路公園・ＪＲ梅小路京都西駅前",
+        "jaReading": "うめこうじこうえん・じぇいあーるうめこうじきょうとにしえきまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      },
+      "transfers": [
+        {
+          "type": "tra",
+          "operator": {
+            "zh": "JR西日本",
+            "en": "JR West",
+            "ja": "ＪＲ西日本"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "七条千本",
+        "en": "Shichijo Senbon",
+        "ja": "七条千本",
+        "jaReading": "しちじょうせんぼん"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "七条御前通",
+        "en": "Shichijo Onmae-dori",
+        "ja": "七条御前通",
+        "jaReading": "しちじょうおんまえどおり"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "西大路七条",
+        "en": "Nishioji Shichijo",
+        "ja": "西大路七条",
+        "jaReading": "にしおおじななじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 14,
+      "name": {
+        "zh": "西大路花屋町",
+        "en": "Nishioji Hanayacho",
+        "ja": "西大路花屋町",
+        "jaReading": "にしおおじはなやちょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 15,
+      "name": {
+        "zh": "西大路五条",
+        "en": "Nishioji Gojo",
+        "ja": "西大路五条",
+        "jaReading": "にしおおじごじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 16,
+      "name": {
+        "zh": "西大路松原",
+        "en": "Nishioji Matsubara",
+        "ja": "西大路松原",
+        "jaReading": "にしおおじまつばら"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 17,
+      "name": {
+        "zh": "西大路四条［阪急・嵐電西院駅］",
+        "en": "Nishioji Shijo (Hankyu/Randen Saiin Sta.)",
+        "ja": "西大路四条［阪急・嵐電西院駅］",
+        "jaReading": "にしおおじしじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 18,
+      "name": {
+        "zh": "西大路三条",
+        "en": "Nishioji Sanjo",
+        "ja": "西大路三条",
+        "jaReading": "にしおおじさんじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 19,
+      "name": {
+        "zh": "西大路御池",
+        "en": "Nishioji Oike",
+        "ja": "西大路御池",
+        "jaReading": "にしおおじおいけ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 20,
+      "name": {
+        "zh": "太子道",
+        "en": "Taishimichi",
+        "ja": "太子道",
+        "jaReading": "たいしみち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 21,
+      "name": {
+        "zh": "西ノ京円町［ＪＲ円町駅］",
+        "en": "Nishinokyo Enmachi (JR Enmachi Sta.)",
+        "ja": "西ノ京円町［ＪＲ円町駅］",
+        "jaReading": "にしのきょうえんまち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      },
+      "transfers": [
+        {
+          "type": "tra",
+          "operator": {
+            "zh": "JR西日本",
+            "en": "JR West",
+            "ja": "ＪＲ西日本"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "name": {
+        "zh": "北野中学前",
+        "en": "Kitano Chugaku-mae",
+        "ja": "北野中学前",
+        "jaReading": "きたのちゅうがくまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 23,
+      "name": {
+        "zh": "大将軍",
+        "en": "Taishogun",
+        "ja": "大将軍",
+        "jaReading": "たいしょうぐん"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 24,
+      "name": {
+        "zh": "北野白梅町",
+        "en": "Kitano Hakubaicho",
+        "ja": "北野白梅町",
+        "jaReading": "きたのはくばいちょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 25,
+      "name": {
+        "zh": "衣笠校前",
+        "en": "Kinugasa-ko-mae",
+        "ja": "衣笠校前",
+        "jaReading": "きぬがさこうまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 26,
+      "name": {
+        "zh": "わら天神前",
+        "en": "Waratenjin-mae",
+        "ja": "わら天神前",
+        "jaReading": "わらてんじんまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 27,
+      "name": {
+        "zh": "金閣寺道",
+        "en": "Kinkakuji-michi",
+        "ja": "金閣寺道",
+        "jaReading": "きんかくじみち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 28,
+      "name": {
+        "zh": "千本北大路",
+        "en": "Senbon Kitaoji",
+        "ja": "千本北大路",
+        "jaReading": "せんぼんきたおおじ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 29,
+      "name": {
+        "zh": "船岡山",
+        "en": "Funaokayama",
+        "ja": "船岡山",
+        "jaReading": "ふなおかやま"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 30,
+      "name": {
+        "zh": "建勲神社前",
+        "en": "Kenkun Jinja-mae",
+        "ja": "建勲神社前",
+        "jaReading": "けんくんじんじゃまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 31,
+      "name": {
+        "zh": "大徳寺前",
+        "en": "Daitokuji-mae",
+        "ja": "大徳寺前",
+        "jaReading": "だいとくじまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 32,
+      "name": {
+        "zh": "北大路堀川",
+        "en": "Kitaoji Horikawa",
+        "ja": "北大路堀川",
+        "jaReading": "きたおおじほりかわ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 33,
+      "name": {
+        "zh": "北大路新町",
+        "en": "Kitaoji Shinmachi",
+        "ja": "北大路新町",
+        "jaReading": "きたおおじしんまち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 34,
+      "name": {
+        "zh": "北大路バスターミナル［地下鉄北大路駅］",
+        "en": "Kitaoji Bus Terminal (Subway Kitaoji Sta.)",
+        "ja": "北大路バスターミナル［地下鉄北大路駅］",
+        "jaReading": "きたおおじバスターミナル"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "京都市營地下鐵",
+            "en": "Kyoto Subway",
+            "ja": "京都市営地下鉄"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "name": {
+        "zh": "烏丸北大路〔北大路駅前〕",
+        "en": "Karasuma Kitaoji",
+        "ja": "烏丸北大路〔北大路駅前〕",
+        "jaReading": "からすまきたおおじ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      },
+      "isTerminal": true
+    }
+  ]
+}

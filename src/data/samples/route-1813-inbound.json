@@ -1,5 +1,10 @@
 {
   "schemaVersion": 1,
+  "region": {
+    "country": "台灣",
+    "city": "台北市"
+  },
+  "locale": "zh",
   "operator": {
     "id": "kingbus",
     "name": {

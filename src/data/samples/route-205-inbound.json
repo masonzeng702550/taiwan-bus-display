@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "region": {
+    "country": "日本",
+    "city": "京都市"
+  },
+  "locale": "ja",
+  "operator": {
+    "id": "teal",
+    "name": {
+      "zh": "京都市公車",
+      "en": "Kyoto City Bus",
+      "ja": "京都市営バス"
+    },
+    "themeId": "teal"
+  },
+  "theme": {
+    "id": "teal",
+    "name": "通用 · 青綠",
+    "primary": "#008c8c",
+    "headerGradient": [
+      "#00696e",
+      "#00b3a6"
+    ],
+    "accent": "#ffd200",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#008c8c"
+  },
+  "route": {
+    "id": "205",
+    "number": "205",
+    "name": {
+      "zh": "205系統",
+      "en": "Route 205",
+      "ja": "205系統"
+    },
+    "direction": "inbound",
+    "destination": {
+      "zh": "北大路バスターミナル［地下鉄北大路駅］",
+      "en": "Kitaoji Bus Terminal (Subway Kitaoji Sta.)",
+      "ja": "北大路バスターミナル［地下鉄北大路駅］",
+      "jaReading": "きたおおじバスターミナル"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "ja",
+      "en",
+      "zh"
+    ],
+    "ttsRate": 1,
+    "showFare": true,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    },
+    "chime": "dingdong"
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "九条車庫前",
+        "en": "Kujo Shako-mae",
+        "ja": "九条車庫前",
+        "jaReading": "くじょうしゃこまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "東寺道",
+        "en": "Toji-michi",
+        "ja": "東寺道",
+        "jaReading": "とうじみち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "下京区総合庁舎前",
+        "en": "Shimogyo-ku Sogo Chosha-mae",
+        "ja": "下京区総合庁舎前",
+        "jaReading": "しもぎょうくそうごうちょうしゃまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "京都駅前",
+        "en": "Kyoto Eki-mae",
+        "ja": "京都駅前",
+        "jaReading": "きょうとえきまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "塩小路高倉・京都市立芸術大学前",
+        "en": "Shiokoji Takakura / Kyoto City Univ. of Arts",
+        "ja": "塩小路高倉・京都市立芸術大学前",
+        "jaReading": "しおこうじたかくら・きょうとしりつげいじゅつだいがくまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "七条河原町",
+        "en": "Shichijo Kawaramachi",
+        "ja": "七条河原町",
+        "jaReading": "しちじょうかわらまち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "河原町正面",
+        "en": "Kawaramachi Shomen",
+        "ja": "河原町正面",
+        "jaReading": "かわらまちしょうめん"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "河原町五条",
+        "en": "Kawaramachi Gojo",
+        "ja": "河原町五条",
+        "jaReading": "かわらまちごじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "河原町松原",
+        "en": "Kawaramachi Matsubara",
+        "ja": "河原町松原",
+        "jaReading": "かわらまちまつばら"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "四条河原町",
+        "en": "Shijo Kawaramachi",
+        "ja": "四条河原町",
+        "jaReading": "しじょうかわらまち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "河原町三条",
+        "en": "Kawaramachi Sanjo",
+        "ja": "河原町三条",
+        "jaReading": "かわらまちさんじょう"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "京都市役所前",
+        "en": "Kyoto Shiyakusho-mae",
+        "ja": "京都市役所前",
+        "jaReading": "きょうとしやくしょまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "河原町丸太町",
+        "en": "Kawaramachi Marutamachi",
+        "ja": "河原町丸太町",
+        "jaReading": "かわらまちまるたまち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 14,
+      "name": {
+        "zh": "荒神口",
+        "en": "Kojinguchi",
+        "ja": "荒神口",
+        "jaReading": "こうじんぐち"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 15,
+      "name": {
+        "zh": "府立医大病院前",
+        "en": "Furitsu Idai Byoin-mae",
+        "ja": "府立医大病院前",
+        "jaReading": "ふりついだいびょういんまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 16,
+      "name": {
+        "zh": "河原町今出川",
+        "en": "Kawaramachi Imadegawa",
+        "ja": "河原町今出川",
+        "jaReading": "かわらまちいまでがわ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 17,
+      "name": {
+        "zh": "葵橋西詰",
+        "en": "Aoibashi Nishizume",
+        "ja": "葵橋西詰",
+        "jaReading": "あおいばしにしづめ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 18,
+      "name": {
+        "zh": "新葵橋",
+        "en": "Shin-Aoibashi",
+        "ja": "新葵橋",
+        "jaReading": "しんあおいばし"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 19,
+      "name": {
+        "zh": "糺ノ森",
+        "en": "Tadasu-no-mori",
+        "ja": "糺ノ森",
+        "jaReading": "ただすのもり"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 20,
+      "name": {
+        "zh": "下鴨神社前",
+        "en": "Shimogamo Jinja-mae",
+        "ja": "下鴨神社前",
+        "jaReading": "しもがもじんじゃまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 21,
+      "name": {
+        "zh": "一本松",
+        "en": "Ipponmatsu",
+        "ja": "一本松",
+        "jaReading": "いっぽんまつ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 22,
+      "name": {
+        "zh": "洛北高校前",
+        "en": "Rakuhoku Koko-mae",
+        "ja": "洛北高校前",
+        "jaReading": "らくほくこうこうまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 23,
+      "name": {
+        "zh": "府立大学前",
+        "en": "Furitsu Daigaku-mae",
+        "ja": "府立大学前",
+        "jaReading": "ふりつだいがくまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 24,
+      "name": {
+        "zh": "植物園前",
+        "en": "Shokubutsuen-mae",
+        "ja": "植物園前",
+        "jaReading": "しょくぶつえんまえ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 25,
+      "name": {
+        "zh": "烏丸北大路〔北大路駅前〕",
+        "en": "Karasuma Kitaoji",
+        "ja": "烏丸北大路〔北大路駅前〕",
+        "jaReading": "からすまきたおおじ"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      }
+    },
+    {
+      "seq": 26,
+      "name": {
+        "zh": "北大路バスターミナル［地下鉄北大路駅］",
+        "en": "Kitaoji Bus Terminal (Subway Kitaoji Sta.)",
+        "ja": "北大路バスターミナル［地下鉄北大路駅］",
+        "jaReading": "きたおおじバスターミナル"
+      },
+      "fare": {
+        "adult": 230,
+        "child": 120
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "京都市營地下鐵",
+            "en": "Kyoto Subway",
+            "ja": "京都市営地下鉄"
+          }
+        }
+      ],
+      "isTerminal": true
+    }
+  ]
+}
