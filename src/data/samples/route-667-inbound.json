@@ -38,7 +38,7 @@
     "direction": "inbound",
     "destination": {
       "zh": "板橋後站",
-      "en": "",
+      "en": "Banqiao Rear Station",
       "ja": "板橋後站"
     }
   },
@@ -67,7 +67,7 @@
       "seq": 1,
       "name": {
         "zh": "中華路北站",
-        "en": "",
+        "en": "Zhonghua Rd. North Station",
         "ja": "中華路北站"
       },
       "fare": {
@@ -79,7 +79,7 @@
       "seq": 2,
       "name": {
         "zh": "捷運西門站",
-        "en": "",
+        "en": "MRT Ximen Station",
         "ja": "捷運西門站"
       },
       "fare": {
@@ -106,7 +106,7 @@
       "seq": 3,
       "name": {
         "zh": "小南門",
-        "en": "",
+        "en": "Xiaonanmen",
         "ja": "小南門"
       },
       "fare": {
@@ -118,7 +118,7 @@
       "seq": 4,
       "name": {
         "zh": "聯合醫院和平院區",
-        "en": "",
+        "en": "United Hospital Heping Branch",
         "ja": "聯合醫院和平院區"
       },
       "fare": {
@@ -130,7 +130,7 @@
       "seq": 5,
       "name": {
         "zh": "艋舺大道",
-        "en": "",
+        "en": "Bangka Boulevard",
         "ja": "艋舺大道"
       },
       "fare": {
@@ -142,19 +142,29 @@
       "seq": 6,
       "name": {
         "zh": "萬華車站",
-        "en": "",
+        "en": "Wanhua Station",
         "ja": "萬華車站"
       },
       "fare": {
         "adult": 15,
         "child": 8
-      }
+      },
+      "transfers": [
+        {
+          "type": "tra",
+          "operator": {
+            "zh": "台灣鐵路",
+            "en": "Taiwan Railway",
+            "ja": "台湾鉄路"
+          }
+        }
+      ]
     },
     {
       "seq": 7,
       "name": {
         "zh": "時報大樓",
-        "en": "",
+        "en": "China Times Building",
         "ja": "時報大樓"
       },
       "fare": {
@@ -166,7 +176,7 @@
       "seq": 8,
       "name": {
         "zh": "雙園街口",
-        "en": "",
+        "en": "Shuangyuan St. Intersection",
         "ja": "雙園街口"
       },
       "fare": {
@@ -178,7 +188,7 @@
       "seq": 9,
       "name": {
         "zh": "雙十路口",
-        "en": "",
+        "en": "Shuangshi Rd. Intersection",
         "ja": "雙十路口"
       },
       "fare": {
@@ -190,7 +200,7 @@
       "seq": 10,
       "name": {
         "zh": "富山街口",
-        "en": "",
+        "en": "Fushan St. Intersection",
         "ja": "富山街口"
       },
       "fare": {
@@ -202,7 +212,7 @@
       "seq": 11,
       "name": {
         "zh": "埤墘里",
-        "en": "",
+        "en": "Piqian Village",
         "ja": "埤墘里"
       },
       "fare": {
@@ -214,7 +224,7 @@
       "seq": 12,
       "name": {
         "zh": "華翠大橋",
-        "en": "",
+        "en": "Huacui Bridge",
         "ja": "華翠大橋"
       },
       "fare": {
@@ -226,7 +236,7 @@
       "seq": 13,
       "name": {
         "zh": "中山國中(縣民大道)",
-        "en": "",
+        "en": "Zhongshan Junior High School (Xianmin Blvd.)",
         "ja": "中山國中(縣民大道)"
       },
       "fare": {
@@ -238,7 +248,7 @@
       "seq": 14,
       "name": {
         "zh": "新北板橋公車站",
-        "en": "",
+        "en": "New Taipei Banqiao Bus Station",
         "ja": "新北板橋公車站"
       },
       "fare": {
@@ -250,7 +260,7 @@
       "seq": 15,
       "name": {
         "zh": "新北市政府(新府路)",
-        "en": "",
+        "en": "New Taipei City Government (Xinfu Rd.)",
         "ja": "新北市政府(新府路)"
       },
       "fare": {
@@ -262,7 +272,7 @@
       "seq": 16,
       "name": {
         "zh": "民權路口",
-        "en": "",
+        "en": "Minquan Rd. Intersection",
         "ja": "民權路口"
       },
       "fare": {
@@ -274,7 +284,7 @@
       "seq": 17,
       "name": {
         "zh": "板橋外站",
-        "en": "",
+        "en": "Banqiao Outer Station",
         "ja": "板橋外站"
       },
       "fare": {
@@ -286,7 +296,7 @@
       "seq": 18,
       "name": {
         "zh": "後站商圈",
-        "en": "",
+        "en": "Rear Station Shopping District",
         "ja": "後站商圈"
       },
       "fare": {
@@ -298,7 +308,7 @@
       "seq": 19,
       "name": {
         "zh": "介壽公園(館前東路)",
-        "en": "",
+        "en": "Jieshou Park (Guanqian E. Rd.)",
         "ja": "介壽公園(館前東路)"
       },
       "fare": {
@@ -310,7 +320,7 @@
       "seq": 20,
       "name": {
         "zh": "實踐成都街口",
-        "en": "",
+        "en": "Shijian-Chengdu St. Intersection",
         "ja": "實踐成都街口"
       },
       "fare": {
@@ -322,7 +332,7 @@
       "seq": 21,
       "name": {
         "zh": "後埔國小",
-        "en": "",
+        "en": "Houpu Elementary School",
         "ja": "後埔國小"
       },
       "fare": {
@@ -334,7 +344,7 @@
       "seq": 22,
       "name": {
         "zh": "福德里",
-        "en": "",
+        "en": "Fude Village",
         "ja": "福德里"
       },
       "fare": {
@@ -346,7 +356,7 @@
       "seq": 23,
       "name": {
         "zh": "民德路",
-        "en": "",
+        "en": "Minde Road",
         "ja": "民德路"
       },
       "fare": {
@@ -358,7 +368,7 @@
       "seq": 24,
       "name": {
         "zh": "德光路",
-        "en": "",
+        "en": "Deguang Road",
         "ja": "德光路"
       },
       "fare": {
@@ -370,7 +380,7 @@
       "seq": 25,
       "name": {
         "zh": "德光路口",
-        "en": "",
+        "en": "Deguang Rd. Intersection",
         "ja": "德光路口"
       },
       "fare": {
@@ -382,7 +392,7 @@
       "seq": 26,
       "name": {
         "zh": "莒光路",
-        "en": "",
+        "en": "Juguang Road",
         "ja": "莒光路"
       },
       "fare": {
@@ -394,7 +404,7 @@
       "seq": 27,
       "name": {
         "zh": "國光派出所",
-        "en": "",
+        "en": "Guoguang Police Station",
         "ja": "國光派出所"
       },
       "fare": {
@@ -406,7 +416,7 @@
       "seq": 28,
       "name": {
         "zh": "自強國小",
-        "en": "",
+        "en": "Ziqiang Elementary School",
         "ja": "自強國小"
       },
       "fare": {
@@ -418,7 +428,7 @@
       "seq": 29,
       "name": {
         "zh": "華安街口",
-        "en": "",
+        "en": "Hua'an St. Intersection",
         "ja": "華安街口"
       },
       "fare": {
@@ -430,7 +440,7 @@
       "seq": 30,
       "name": {
         "zh": "壽德街口",
-        "en": "",
+        "en": "Shoude St. Intersection",
         "ja": "壽德街口"
       },
       "fare": {
@@ -442,7 +452,7 @@
       "seq": 31,
       "name": {
         "zh": "五權公園",
-        "en": "",
+        "en": "Wuquan Park",
         "ja": "五權公園"
       },
       "fare": {
@@ -454,7 +464,7 @@
       "seq": 32,
       "name": {
         "zh": "廣福公園",
-        "en": "",
+        "en": "Guangfu Park",
         "ja": "廣福公園"
       },
       "fare": {
@@ -466,7 +476,7 @@
       "seq": 33,
       "name": {
         "zh": "干城路口",
-        "en": "",
+        "en": "Gancheng Rd. Intersection",
         "ja": "干城路口"
       },
       "fare": {
@@ -478,7 +488,7 @@
       "seq": 34,
       "name": {
         "zh": "板橋後站",
-        "en": "",
+        "en": "Banqiao Rear Station",
         "ja": "板橋後站"
       },
       "fare": {

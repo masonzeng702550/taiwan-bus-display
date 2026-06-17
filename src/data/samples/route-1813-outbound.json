@@ -73,7 +73,17 @@
       "fare": {
         "adult": 15,
         "child": 8
-      }
+      },
+      "transfers": [
+        {
+          "type": "tra",
+          "operator": {
+            "zh": "台灣鐵路",
+            "en": "Taiwan Railway",
+            "ja": "台湾鉄路"
+          }
+        }
+      ]
     },
     {
       "seq": 2,

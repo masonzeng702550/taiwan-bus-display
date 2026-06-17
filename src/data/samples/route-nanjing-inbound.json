@@ -1,0 +1,638 @@
+{
+  "schemaVersion": 1,
+  "region": {
+    "country": "台灣",
+    "city": "台北市"
+  },
+  "locale": "zh",
+  "operator": {
+    "id": "tpe-union",
+    "name": {
+      "zh": "首都客運",
+      "en": "Capital Bus",
+      "ja": "首都客運"
+    },
+    "themeId": "tpe-union"
+  },
+  "theme": {
+    "id": "tpe-union",
+    "name": "台北聯營 / 大都會客運",
+    "primary": "#9b30ff",
+    "headerGradient": [
+      "#7b1fa2",
+      "#b14aff"
+    ],
+    "accent": "#ff8c00",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#9b30ff"
+  },
+  "route": {
+    "id": "nanjing",
+    "number": "南京幹線",
+    "name": {
+      "zh": "南京幹線",
+      "en": "Nanjing Trunk",
+      "ja": "南京幹線"
+    },
+    "direction": "inbound",
+    "destination": {
+      "zh": "東新國小",
+      "en": "Dongxin Elementary School",
+      "ja": "東新國小"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "ttsRate": 1,
+    "showFare": true,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    }
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "圓環(重慶)",
+        "en": "Yuanhuan (Chongqing)",
+        "ja": "圓環(重慶)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "圓環(南京)",
+        "en": "Yuanhuan (Nanjing)",
+        "ja": "圓環(南京)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "捷運中山站(志仁高中)",
+        "en": "MRT Zhongshan Sta. (Zhiren High School)",
+        "ja": "捷運中山站(志仁高中)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "中山站",
+            "en": "",
+            "ja": "中山站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "南京林森路口",
+        "en": "Nanjing Linsen Rd. Intersection",
+        "ja": "南京林森路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "南京吉林路口",
+        "en": "Nanjing Jilin Rd. Intersection",
+        "ja": "南京吉林路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "捷運松江南京站",
+        "en": "MRT Songjiang Nanjing Sta.",
+        "ja": "捷運松江南京站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "松江南京站",
+            "en": "",
+            "ja": "松江南京站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "南京建國路口",
+        "en": "Nanjing Jianguo Rd. Intersection",
+        "ja": "南京建國路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "南京龍江路口",
+        "en": "Nanjing Longjiang Rd. Intersection",
+        "ja": "南京龍江路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "捷運南京復興站",
+        "en": "MRT Nanjing Fuxing Sta.",
+        "ja": "捷運南京復興站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "南京復興站",
+            "en": "",
+            "ja": "南京復興站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "南京敦化路口(小巨蛋)",
+        "en": "Nanjing Dunhua Rd. Intersection (Taipei Arena)",
+        "ja": "南京敦化路口(小巨蛋)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "南京寧安街口",
+        "en": "Nanjing Ning'an St. Intersection",
+        "ja": "南京寧安街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "南京三民路口",
+        "en": "Nanjing Sanmin Rd. Intersection",
+        "ja": "南京三民路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "南京公寓(捷運南京三民)",
+        "en": "Nanjing Apartments (MRT Nanjing Sanmin)",
+        "ja": "南京公寓(捷運南京三民)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 14,
+      "name": {
+        "zh": "麥帥一橋",
+        "en": "MacArthur 1st Bridge",
+        "ja": "麥帥一橋"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 15,
+      "name": {
+        "zh": "南京舊宗路口",
+        "en": "Nanjing Jiuzong Rd. Intersection",
+        "ja": "南京舊宗路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 16,
+      "name": {
+        "zh": "潭美公園",
+        "en": "Tanmei Park",
+        "ja": "潭美公園"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 17,
+      "name": {
+        "zh": "成功路二段(交流道)",
+        "en": "Chenggong Rd. Sec. 2 (Interchange)",
+        "ja": "成功路二段(交流道)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 18,
+      "name": {
+        "zh": "上灣仔",
+        "en": "Shangwanzai",
+        "ja": "上灣仔"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 19,
+      "name": {
+        "zh": "湖興",
+        "en": "Huxing",
+        "ja": "湖興"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 20,
+      "name": {
+        "zh": "國防醫學中心",
+        "en": "National Defense Medical Center",
+        "ja": "國防醫學中心"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 21,
+      "name": {
+        "zh": "將軍嶺",
+        "en": "Jiangjun Ling",
+        "ja": "將軍嶺"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 22,
+      "name": {
+        "zh": "方濟中學",
+        "en": "St. Francis High School",
+        "ja": "方濟中學"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 23,
+      "name": {
+        "zh": "成功路三段",
+        "en": "Chenggong Rd. Sec. 3",
+        "ja": "成功路三段"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 24,
+      "name": {
+        "zh": "湖光市場",
+        "en": "Huguang Market",
+        "ja": "湖光市場"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 25,
+      "name": {
+        "zh": "捷運內湖站",
+        "en": "MRT Neihu Sta.",
+        "ja": "捷運內湖站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "內湖站",
+            "en": "",
+            "ja": "內湖站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "name": {
+        "zh": "清白里",
+        "en": "Qingbai Li",
+        "ja": "清白里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 27,
+      "name": {
+        "zh": "康寧派出所",
+        "en": "Kangning Police Station",
+        "ja": "康寧派出所"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 28,
+      "name": {
+        "zh": "美國在臺協會",
+        "en": "American Institute in Taiwan (AIT)",
+        "ja": "美國在臺協會"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 29,
+      "name": {
+        "zh": "紫雲里",
+        "en": "Ziyun Li",
+        "ja": "紫雲里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 30,
+      "name": {
+        "zh": "衛勤訓練中心",
+        "en": "Medical Service Training Center",
+        "ja": "衛勤訓練中心"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 31,
+      "name": {
+        "zh": "金湖路口",
+        "en": "Jinhu Rd. Intersection",
+        "ja": "金湖路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 32,
+      "name": {
+        "zh": "捷運葫洲站(康寧大學)",
+        "en": "MRT Huzhou Sta. (Kang-Ning University)",
+        "ja": "捷運葫洲站(康寧大學)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "葫洲站",
+            "en": "",
+            "ja": "葫洲站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "name": {
+        "zh": "明湖國小(公共電視台)",
+        "en": "Minghu Elementary School (PTS)",
+        "ja": "明湖國小(公共電視台)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 34,
+      "name": {
+        "zh": "明湖國中",
+        "en": "Minghu Junior High School",
+        "ja": "明湖國中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 35,
+      "name": {
+        "zh": "捷運東湖站(南湖高中)",
+        "en": "MRT Donghu Sta. (Nanhu High School)",
+        "ja": "捷運東湖站(南湖高中)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "東湖站",
+            "en": "",
+            "ja": "東湖站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "name": {
+        "zh": "園區街",
+        "en": "Yuanqu St.",
+        "ja": "園區街"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 37,
+      "name": {
+        "zh": "三重里",
+        "en": "Sanchong Li",
+        "ja": "三重里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 38,
+      "name": {
+        "zh": "育成高中",
+        "en": "Yucheng High School",
+        "ja": "育成高中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 39,
+      "name": {
+        "zh": "南港高工(重陽)",
+        "en": "Nangang Vocational High School (Chongyang)",
+        "ja": "南港高工(重陽)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 40,
+      "name": {
+        "zh": "東新國小",
+        "en": "Dongxin Elementary School",
+        "ja": "東新國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "isTerminal": true
+    }
+  ]
+}

@@ -4,11 +4,17 @@
 // the editor); English is included where the source provided it.
 //
 // Run:  node scripts/gen-samples.mjs
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
-const outDir = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "samples");
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const outDir = join(scriptDir, "..", "src", "data", "samples");
+const readJson = (f) => JSON.parse(readFileSync(join(scriptDir, "data", f), "utf8"));
+
+const EN_DICT = readJson("en-dict.json");
+const NANJING = readJson("nanjing.json");
+const CHENGDE = readJson("chengde.json");
 
 const THEMES = {
   "tpe-union": { id: "tpe-union", name: "台北聯營 / 大都會客運", primary: "#9b30ff", headerGradient: ["#7b1fa2", "#b14aff"], accent: "#ff8c00", textColor: "#ffffff", bgColor: "#000000", dividerColor: "#9b30ff" },
@@ -21,27 +27,35 @@ const OPERATORS = {
   sanchong: { id: "tpe-union", name: { zh: "三重客運", en: "Sanchong Bus", ja: "三重客運" }, theme: "tpe-union" },
   dayou: { id: "teal", name: { zh: "大有巴士", en: "Da-You Bus", ja: "大有バス" }, theme: "teal" },
   kuokuang: { id: "kingbus", name: "kk", theme: "kingbus" },
+  shoudou: { id: "tpe-union", name: { zh: "首都客運", en: "Capital Bus", ja: "首都客運" }, theme: "tpe-union" },
+  danan: { id: "kingbus", name: { zh: "大南汽車", en: "Ta-Nan Bus", ja: "大南汽車" }, theme: "kingbus" },
 };
 OPERATORS.kuokuang.name = { zh: "國光客運", en: "Kuo-Kuang Bus", ja: "国光客運" };
 
-// Build a stop. Auto-adds an MRT transfer when the stop is a 捷運 station.
+const strip = (zh) => zh.replace(/[(（].*?[)）]/g, "").replace(/[［〔].*?[］〕]/g, "").trim();
+
+// Build a stop. English falls back to the EN_DICT lookup. Auto-adds a transfer
+// for MRT (捷運) / railway (車站) / HSR (高鐵) stations.
 function makeStop(seq, zh, en) {
-  const stop = { seq, name: { zh, en: en || "", ja: zh }, fare: { adult: 15, child: 8 } };
+  const english = en || EN_DICT[zh] || EN_DICT[strip(zh)] || "";
+  const stop = { seq, name: { zh, en: english, ja: zh }, fare: { adult: 15, child: 8 } };
   if (zh.includes("捷運") && zh.includes("站")) {
-    const station = zh.replace("捷運", "").replace(/\(.*\)/, "").trim();
-    stop.transfers = [
-      { type: "metro", operator: { zh: "台北捷運", en: "Taipei Metro", ja: "台北メトロ" }, station: { zh: station, en: "", ja: station } },
-    ];
+    const station = strip(zh).replace("捷運", "").trim();
+    stop.transfers = [{ type: "metro", operator: { zh: "台北捷運", en: "Taipei Metro", ja: "台北メトロ" }, station: { zh: station, en: "", ja: station } }];
+  } else if (zh.includes("高鐵")) {
+    stop.transfers = [{ type: "thsr", operator: { zh: "台灣高鐵", en: "Taiwan High Speed Rail", ja: "台湾高速鉄道" } }];
+  } else if (zh.includes("車站") && !zh.includes("公車") && !zh.includes("客運") && !zh.includes("轉運")) {
+    stop.transfers = [{ type: "tra", operator: { zh: "台灣鐵路", en: "Taiwan Railway", ja: "台湾鉄路" } }];
   }
   return stop;
 }
 
-function buildRoute({ number, routeName, operatorKey, direction, stopsZh, stopsEn, showFare = true, city = "新北市" }) {
+function buildRoute({ number, slug, routeName, operatorKey, direction, stopsZh, stopsEn, showFare = true, city = "新北市" }) {
   const op = OPERATORS[operatorKey];
   const stops = stopsZh.map((zh, i) => makeStop(i + 1, zh, stopsEn ? stopsEn[i] : ""));
   stops[stops.length - 1].isTerminal = true;
   const destZh = stopsZh[stopsZh.length - 1];
-  const destEn = stopsEn ? stopsEn[stopsEn.length - 1] : "";
+  const destEn = stopsEn ? stopsEn[stopsEn.length - 1] : EN_DICT[destZh] || EN_DICT[strip(destZh)] || "";
   return {
     schemaVersion: 1,
     region: { country: "台灣", city },
@@ -49,7 +63,7 @@ function buildRoute({ number, routeName, operatorKey, direction, stopsZh, stopsE
     operator: { id: op.id, name: op.name, themeId: op.theme },
     theme: THEMES[op.theme],
     route: {
-      id: number,
+      id: slug ?? number,
       number,
       name: routeName,
       direction,
@@ -93,16 +107,20 @@ const routes = [
   buildRoute({ number: "245", routeName: { zh: "245 路", en: "Route 245", ja: "245系統" }, operatorKey: "tpebus", direction: "inbound", stopsZh: R245_IN }),
   buildRoute({ number: "667", routeName: { zh: "667 路", en: "Route 667", ja: "667系統" }, operatorKey: "tpebus", direction: "outbound", stopsZh: R667_OUT }),
   buildRoute({ number: "667", routeName: { zh: "667 路", en: "Route 667", ja: "667系統" }, operatorKey: "tpebus", direction: "inbound", stopsZh: R667_IN }),
-  buildRoute({ number: "265區", routeName: { zh: "265 區間車", en: "Route 265 (Zone)", ja: "265系統 区間" }, operatorKey: "sanchong", direction: "outbound", stopsZh: R265_OUT }),
-  buildRoute({ number: "265區", routeName: { zh: "265 區間車", en: "Route 265 (Zone)", ja: "265系統 区間" }, operatorKey: "sanchong", direction: "inbound", stopsZh: R265_IN }),
+  buildRoute({ number: "265區", slug: "265", routeName: { zh: "265 區間車", en: "Route 265 (Zone)", ja: "265系統 区間" }, operatorKey: "sanchong", direction: "outbound", stopsZh: R265_OUT }),
+  buildRoute({ number: "265區", slug: "265", routeName: { zh: "265 區間車", en: "Route 265 (Zone)", ja: "265系統 区間" }, operatorKey: "sanchong", direction: "inbound", stopsZh: R265_IN }),
   buildRoute({ number: "1962", routeName: { zh: "1962", en: "Route 1962", ja: "1962系統" }, operatorKey: "dayou", direction: "outbound", stopsZh: R1962_OUT_ZH, stopsEn: R1962_OUT_EN, showFare: false }),
   buildRoute({ number: "1962", routeName: { zh: "1962", en: "Route 1962", ja: "1962系統" }, operatorKey: "dayou", direction: "inbound", stopsZh: R1962_IN_ZH, stopsEn: R1962_IN_EN, showFare: false }),
   buildRoute({ number: "1813", routeName: { zh: "1813", en: "Route 1813", ja: "1813系統" }, operatorKey: "kuokuang", direction: "outbound", stopsZh: R1813_OUT_ZH, stopsEn: R1813_OUT_EN, showFare: false, city: "台北市" }),
   buildRoute({ number: "1813", routeName: { zh: "1813", en: "Route 1813", ja: "1813系統" }, operatorKey: "kuokuang", direction: "inbound", stopsZh: R1813_IN_ZH, stopsEn: R1813_IN_EN, showFare: false, city: "台北市" }),
+  buildRoute({ number: "南京幹線", slug: "nanjing", routeName: { zh: "南京幹線", en: "Nanjing Trunk", ja: "南京幹線" }, operatorKey: "shoudou", direction: "outbound", stopsZh: NANJING.outbound.map((s) => s.zh), stopsEn: NANJING.outbound.map((s) => s.en), city: "台北市" }),
+  buildRoute({ number: "南京幹線", slug: "nanjing", routeName: { zh: "南京幹線", en: "Nanjing Trunk", ja: "南京幹線" }, operatorKey: "shoudou", direction: "inbound", stopsZh: NANJING.inbound.map((s) => s.zh), stopsEn: NANJING.inbound.map((s) => s.en), city: "台北市" }),
+  buildRoute({ number: "承德幹線", slug: "chengde", routeName: { zh: "承德幹線", en: "Chengde Trunk", ja: "承德幹線" }, operatorKey: "danan", direction: "outbound", stopsZh: CHENGDE.outbound.map((s) => s.zh), stopsEn: CHENGDE.outbound.map((s) => s.en), city: "台北市" }),
+  buildRoute({ number: "承德幹線", slug: "chengde", routeName: { zh: "承德幹線", en: "Chengde Trunk", ja: "承德幹線" }, operatorKey: "danan", direction: "inbound", stopsZh: CHENGDE.inbound.map((s) => s.zh), stopsEn: CHENGDE.inbound.map((s) => s.en), city: "台北市" }),
 ];
 
 for (const r of routes) {
-  const fname = `route-${r.route.number.replace(/[^0-9A-Za-z]/g, "")}-${r.route.direction}.json`;
+  const fname = `route-${r.route.id}-${r.route.direction}.json`;
   writeFileSync(join(outDir, fname), JSON.stringify(r, null, 2) + "\n");
   console.log("wrote", fname, `(${r.stops.length} stops)`);
 }

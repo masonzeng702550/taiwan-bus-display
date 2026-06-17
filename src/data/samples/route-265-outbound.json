@@ -28,7 +28,7 @@
     "dividerColor": "#9b30ff"
   },
   "route": {
-    "id": "265區",
+    "id": "265",
     "number": "265區",
     "name": {
       "zh": "265 區間車",
@@ -38,7 +38,7 @@
     "direction": "outbound",
     "destination": {
       "zh": "立法院",
-      "en": "",
+      "en": "Legislative Yuan",
       "ja": "立法院"
     }
   },
@@ -67,7 +67,7 @@
       "seq": 1,
       "name": {
         "zh": "壽德新村",
-        "en": "",
+        "en": "Shoude New Village",
         "ja": "壽德新村"
       },
       "fare": {
@@ -79,7 +79,7 @@
       "seq": 2,
       "name": {
         "zh": "重慶忠孝路口",
-        "en": "",
+        "en": "Chongqing-Zhongxiao Rd. Intersection",
         "ja": "重慶忠孝路口"
       },
       "fare": {
@@ -91,7 +91,7 @@
       "seq": 3,
       "name": {
         "zh": "中興醫院",
-        "en": "",
+        "en": "Zhongxing Hospital",
         "ja": "中興醫院"
       },
       "fare": {
@@ -103,7 +103,7 @@
       "seq": 4,
       "name": {
         "zh": "鄉雲里",
-        "en": "",
+        "en": "Xiangyun Village",
         "ja": "鄉雲里"
       },
       "fare": {
@@ -115,7 +115,7 @@
       "seq": 5,
       "name": {
         "zh": "後站商圈",
-        "en": "",
+        "en": "Rear Station Shopping District",
         "ja": "後站商圈"
       },
       "fare": {
@@ -127,7 +127,7 @@
       "seq": 6,
       "name": {
         "zh": "民族區運路口",
-        "en": "",
+        "en": "Minzu-Quyun Rd. Intersection",
         "ja": "民族區運路口"
       },
       "fare": {
@@ -139,7 +139,7 @@
       "seq": 7,
       "name": {
         "zh": "電信訓練所",
-        "en": "",
+        "en": "Telecommunications Training Institute",
         "ja": "電信訓練所"
       },
       "fare": {
@@ -151,7 +151,7 @@
       "seq": 8,
       "name": {
         "zh": "國泰街口",
-        "en": "",
+        "en": "Guotai St. Intersection",
         "ja": "國泰街口"
       },
       "fare": {
@@ -163,7 +163,7 @@
       "seq": 9,
       "name": {
         "zh": "瑞穗里",
-        "en": "",
+        "en": "Ruisui Village",
         "ja": "瑞穗里"
       },
       "fare": {
@@ -175,7 +175,7 @@
       "seq": 10,
       "name": {
         "zh": "海山高中",
-        "en": "",
+        "en": "Haishan High School",
         "ja": "海山高中"
       },
       "fare": {
@@ -187,7 +187,7 @@
       "seq": 11,
       "name": {
         "zh": "漢生路",
-        "en": "",
+        "en": "Hansheng Road",
         "ja": "漢生路"
       },
       "fare": {
@@ -199,7 +199,7 @@
       "seq": 12,
       "name": {
         "zh": "中山漢生路口",
-        "en": "",
+        "en": "Zhongshan-Hansheng Rd. Intersection",
         "ja": "中山漢生路口"
       },
       "fare": {
@@ -211,7 +211,7 @@
       "seq": 13,
       "name": {
         "zh": "西安里",
-        "en": "",
+        "en": "Xi'an Village",
         "ja": "西安里"
       },
       "fare": {
@@ -223,7 +223,7 @@
       "seq": 14,
       "name": {
         "zh": "中山民生路口",
-        "en": "",
+        "en": "Zhongshan-Minsheng Rd. Intersection",
         "ja": "中山民生路口"
       },
       "fare": {
@@ -235,7 +235,7 @@
       "seq": 15,
       "name": {
         "zh": "埔墘國小",
-        "en": "",
+        "en": "Puqian Elementary School",
         "ja": "埔墘國小"
       },
       "fare": {
@@ -247,7 +247,7 @@
       "seq": 16,
       "name": {
         "zh": "埔墘(中山路)",
-        "en": "",
+        "en": "Puqian (Zhongshan Rd.)",
         "ja": "埔墘(中山路)"
       },
       "fare": {
@@ -259,7 +259,7 @@
       "seq": 17,
       "name": {
         "zh": "埔墘派出所",
-        "en": "",
+        "en": "Puqian Police Station",
         "ja": "埔墘派出所"
       },
       "fare": {
@@ -271,7 +271,7 @@
       "seq": 18,
       "name": {
         "zh": "光復橋",
-        "en": "",
+        "en": "Guangfu Bridge",
         "ja": "光復橋"
       },
       "fare": {
@@ -283,7 +283,7 @@
       "seq": 19,
       "name": {
         "zh": "西園路二段",
-        "en": "",
+        "en": "Xiyuan Rd. Sec. 2",
         "ja": "西園路二段"
       },
       "fare": {
@@ -295,7 +295,7 @@
       "seq": 20,
       "name": {
         "zh": "華江高中(西園)",
-        "en": "",
+        "en": "Huajiang High School (Xiyuan)",
         "ja": "華江高中(西園)"
       },
       "fare": {
@@ -307,7 +307,7 @@
       "seq": 21,
       "name": {
         "zh": "西園29服飾基地",
-        "en": "",
+        "en": "Xiyuan 29 Fashion Base",
         "ja": "西園29服飾基地"
       },
       "fare": {
@@ -319,7 +319,7 @@
       "seq": 22,
       "name": {
         "zh": "大理服飾",
-        "en": "",
+        "en": "Dali Garment District",
         "ja": "大理服飾"
       },
       "fare": {
@@ -331,7 +331,7 @@
       "seq": 23,
       "name": {
         "zh": "捷運龍山寺站",
-        "en": "",
+        "en": "MRT Longshan Temple Station",
         "ja": "捷運龍山寺站"
       },
       "fare": {
@@ -358,7 +358,7 @@
       "seq": 24,
       "name": {
         "zh": "龍山國中",
-        "en": "",
+        "en": "Longshan Junior High School",
         "ja": "龍山國中"
       },
       "fare": {
@@ -370,7 +370,7 @@
       "seq": 25,
       "name": {
         "zh": "小南門",
-        "en": "",
+        "en": "Xiaonanmen",
         "ja": "小南門"
       },
       "fare": {
@@ -382,7 +382,7 @@
       "seq": 26,
       "name": {
         "zh": "捷運西門站",
-        "en": "",
+        "en": "MRT Ximen Station",
         "ja": "捷運西門站"
       },
       "fare": {
@@ -409,7 +409,7 @@
       "seq": 27,
       "name": {
         "zh": "中華路北站",
-        "en": "",
+        "en": "Zhonghua Rd. North Station",
         "ja": "中華路北站"
       },
       "fare": {
@@ -421,19 +421,29 @@
       "seq": 28,
       "name": {
         "zh": "臺北車站(忠孝)",
-        "en": "",
+        "en": "Taipei Main Station (Zhongxiao)",
         "ja": "臺北車站(忠孝)"
       },
       "fare": {
         "adult": 15,
         "child": 8
-      }
+      },
+      "transfers": [
+        {
+          "type": "tra",
+          "operator": {
+            "zh": "台灣鐵路",
+            "en": "Taiwan Railway",
+            "ja": "台湾鉄路"
+          }
+        }
+      ]
     },
     {
       "seq": 29,
       "name": {
         "zh": "捷運善導寺站",
-        "en": "",
+        "en": "MRT Shandao Temple Station",
         "ja": "捷運善導寺站"
       },
       "fare": {
@@ -460,7 +470,7 @@
       "seq": 30,
       "name": {
         "zh": "成功中學(林森)",
-        "en": "",
+        "en": "Chenggong Senior High School (Linsen)",
         "ja": "成功中學(林森)"
       },
       "fare": {
@@ -472,7 +482,7 @@
       "seq": 31,
       "name": {
         "zh": "立法院",
-        "en": "",
+        "en": "Legislative Yuan",
         "ja": "立法院"
       },
       "fare": {

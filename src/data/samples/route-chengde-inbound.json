@@ -1,0 +1,935 @@
+{
+  "schemaVersion": 1,
+  "region": {
+    "country": "台灣",
+    "city": "台北市"
+  },
+  "locale": "zh",
+  "operator": {
+    "id": "kingbus",
+    "name": {
+      "zh": "大南汽車",
+      "en": "Ta-Nan Bus",
+      "ja": "大南汽車"
+    },
+    "themeId": "kingbus"
+  },
+  "theme": {
+    "id": "kingbus",
+    "name": "桃園 / 國光客運（長途）",
+    "primary": "#c8102e",
+    "headerGradient": [
+      "#9e0b22",
+      "#e2243d"
+    ],
+    "accent": "#ffd200",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#c8102e"
+  },
+  "route": {
+    "id": "chengde",
+    "number": "承德幹線",
+    "name": {
+      "zh": "承德幹線",
+      "en": "Chengde Trunk",
+      "ja": "承德幹線"
+    },
+    "direction": "inbound",
+    "destination": {
+      "zh": "新北投",
+      "en": "Xinbeitou",
+      "ja": "新北投"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "ttsRate": 1,
+    "showFare": true,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    }
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "捷運市政府站",
+        "en": "MRT Taipei City Hall Sta.",
+        "ja": "捷運市政府站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "市政府站",
+            "en": "",
+            "ja": "市政府站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "消防局(松仁)",
+        "en": "Fire Department (Songren)",
+        "ja": "消防局(松仁)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "興雅國中",
+        "en": "Xingya Junior High School",
+        "ja": "興雅國中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "信義松仁路口(松仁)",
+        "en": "Xinyi-Songren Rd. Intersection (Songren)",
+        "ja": "信義松仁路口(松仁)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "松平路口",
+        "en": "Songping Rd. Intersection",
+        "ja": "松平路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "信義國中(松仁)",
+        "en": "Xinyi Junior High School (Songren)",
+        "ja": "信義國中(松仁)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "吳興國小(松仁)",
+        "en": "Wuxing Elementary School (Songren)",
+        "ja": "吳興國小(松仁)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "松仁路",
+        "en": "Songren Rd.",
+        "ja": "松仁路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "信義國中(莊敬)",
+        "en": "Xinyi Junior High School (Zhuangjing)",
+        "ja": "信義國中(莊敬)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "臺北醫學大學",
+        "en": "Taipei Medical University",
+        "ja": "臺北醫學大學"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "景新里",
+        "en": "Jingxin Li",
+        "ja": "景新里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "世貿中心(莊敬)",
+        "en": "World Trade Center (Zhuangjing)",
+        "ja": "世貿中心(莊敬)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "信義光復路口",
+        "en": "Xinyi-Guangfu Rd. Intersection",
+        "ja": "信義光復路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 14,
+      "name": {
+        "zh": "三張犁",
+        "en": "Sanzhangli",
+        "ja": "三張犁"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 15,
+      "name": {
+        "zh": "市民住宅",
+        "en": "Citizen Housing",
+        "ja": "市民住宅"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 16,
+      "name": {
+        "zh": "國父紀念館",
+        "en": "Sun Yat-sen Memorial Hall",
+        "ja": "國父紀念館"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 17,
+      "name": {
+        "zh": "捷運國父紀念館站(光復)",
+        "en": "MRT Sun Yat-sen Memorial Hall Sta. (Guangfu)",
+        "ja": "捷運國父紀念館站(光復)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "國父紀念館站",
+            "en": "",
+            "ja": "國父紀念館站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "name": {
+        "zh": "臺北市區監理所(光復)",
+        "en": "Taipei City Motor Vehicles Office (Guangfu)",
+        "ja": "臺北市區監理所(光復)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 19,
+      "name": {
+        "zh": "榮民服務處",
+        "en": "Veterans Service Office",
+        "ja": "榮民服務處"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 20,
+      "name": {
+        "zh": "南京寧安街口",
+        "en": "Nanjing-Ning'an St. Intersection",
+        "ja": "南京寧安街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 21,
+      "name": {
+        "zh": "南京敦化路口(小巨蛋)",
+        "en": "Nanjing-Dunhua Rd. Intersection (Taipei Arena)",
+        "ja": "南京敦化路口(小巨蛋)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 22,
+      "name": {
+        "zh": "捷運南京復興站",
+        "en": "MRT Nanjing Fuxing Sta.",
+        "ja": "捷運南京復興站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "南京復興站",
+            "en": "",
+            "ja": "南京復興站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "name": {
+        "zh": "南京龍江路口",
+        "en": "Nanjing-Longjiang Rd. Intersection",
+        "ja": "南京龍江路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 24,
+      "name": {
+        "zh": "南京建國路口",
+        "en": "Nanjing-Jianguo Rd. Intersection",
+        "ja": "南京建國路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 25,
+      "name": {
+        "zh": "捷運松江南京站",
+        "en": "MRT Songjiang Nanjing Sta.",
+        "ja": "捷運松江南京站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "松江南京站",
+            "en": "",
+            "ja": "松江南京站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "name": {
+        "zh": "南京吉林路口",
+        "en": "Nanjing-Jilin Rd. Intersection",
+        "ja": "南京吉林路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 27,
+      "name": {
+        "zh": "南京林森路口",
+        "en": "Nanjing-Linsen Rd. Intersection",
+        "ja": "南京林森路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 28,
+      "name": {
+        "zh": "捷運中山站(志仁高中)",
+        "en": "MRT Zhongshan Sta. (Zhiren High School)",
+        "ja": "捷運中山站(志仁高中)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "中山站",
+            "en": "",
+            "ja": "中山站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "name": {
+        "zh": "建成公園",
+        "en": "Jiancheng Park",
+        "ja": "建成公園"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 30,
+      "name": {
+        "zh": "民生西路口",
+        "en": "Minsheng W. Rd. Intersection",
+        "ja": "民生西路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 31,
+      "name": {
+        "zh": "成淵高中",
+        "en": "Chengyuan High School",
+        "ja": "成淵高中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 32,
+      "name": {
+        "zh": "防癆協會",
+        "en": "Anti-Tuberculosis Association",
+        "ja": "防癆協會"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 33,
+      "name": {
+        "zh": "大同國小",
+        "en": "Datong Elementary School",
+        "ja": "大同國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 34,
+      "name": {
+        "zh": "民族承德路口",
+        "en": "Minzu-Chengde Rd. Intersection",
+        "ja": "民族承德路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 35,
+      "name": {
+        "zh": "庫倫街口",
+        "en": "Kulun St. Intersection",
+        "ja": "庫倫街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 36,
+      "name": {
+        "zh": "明倫高中",
+        "en": "Minglun High School",
+        "ja": "明倫高中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 37,
+      "name": {
+        "zh": "劍潭國小",
+        "en": "Jiantan Elementary School",
+        "ja": "劍潭國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 38,
+      "name": {
+        "zh": "圓山皇宮大廈",
+        "en": "Yuanshan Huanggong Building",
+        "ja": "圓山皇宮大廈"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 39,
+      "name": {
+        "zh": "捷運劍潭站(北藝中心)",
+        "en": "MRT Jiantan Sta. (Taipei Performing Arts Center)",
+        "ja": "捷運劍潭站(北藝中心)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "劍潭站",
+            "en": "",
+            "ja": "劍潭站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 40,
+      "name": {
+        "zh": "小北街",
+        "en": "Xiaobei St.",
+        "ja": "小北街"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 41,
+      "name": {
+        "zh": "士林",
+        "en": "Shilin",
+        "ja": "士林"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 42,
+      "name": {
+        "zh": "捷運芝山站一",
+        "en": "MRT Zhishan Sta. 1",
+        "ja": "捷運芝山站一"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "芝山站一",
+            "en": "",
+            "ja": "芝山站一"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 43,
+      "name": {
+        "zh": "捷運芝山站(戲曲中心)",
+        "en": "MRT Zhishan Sta. (Taiwan Traditional Theatre Center)",
+        "ja": "捷運芝山站(戲曲中心)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "芝山站",
+            "en": "",
+            "ja": "芝山站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 44,
+      "name": {
+        "zh": "中正高中",
+        "en": "Zhongzheng High School",
+        "ja": "中正高中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 45,
+      "name": {
+        "zh": "文林國小",
+        "en": "Wenlin Elementary School",
+        "ja": "文林國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 46,
+      "name": {
+        "zh": "石牌福星宮",
+        "en": "Shipai Fuxing Temple",
+        "ja": "石牌福星宮"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 47,
+      "name": {
+        "zh": "承德路七段",
+        "en": "Chengde Rd. Sec. 7",
+        "ja": "承德路七段"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 48,
+      "name": {
+        "zh": "實踐街口",
+        "en": "Shijian St. Intersection",
+        "ja": "實踐街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 49,
+      "name": {
+        "zh": "立賢承德路口",
+        "en": "Lixian-Chengde Rd. Intersection",
+        "ja": "立賢承德路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 50,
+      "name": {
+        "zh": "立農國小",
+        "en": "Linong Elementary School",
+        "ja": "立農國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 51,
+      "name": {
+        "zh": "承德公舘路口",
+        "en": "Chengde-Gongguan Rd. Intersection",
+        "ja": "承德公舘路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 52,
+      "name": {
+        "zh": "大業路(農禪寺)",
+        "en": "Daye Rd. (Nongchan Temple)",
+        "ja": "大業路(農禪寺)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 53,
+      "name": {
+        "zh": "鳳甲美術館",
+        "en": "Hong-gah Museum",
+        "ja": "鳳甲美術館"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 54,
+      "name": {
+        "zh": "大業路(大興街口)",
+        "en": "Daye Rd. (Daxing St. Intersection)",
+        "ja": "大業路(大興街口)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 55,
+      "name": {
+        "zh": "大業路(捷運北投站)",
+        "en": "Daye Rd. (MRT Beitou Sta.)",
+        "ja": "大業路(捷運北投站)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "大業路",
+            "en": "",
+            "ja": "大業路"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 56,
+      "name": {
+        "zh": "幼華高中(大業)",
+        "en": "Youhua High School (Daye)",
+        "ja": "幼華高中(大業)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 57,
+      "name": {
+        "zh": "大業中央北路口",
+        "en": "Daye-Zhongyang N. Rd. Intersection",
+        "ja": "大業中央北路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 58,
+      "name": {
+        "zh": "北投國小",
+        "en": "Beitou Elementary School",
+        "ja": "北投國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 59,
+      "name": {
+        "zh": "第一銀行",
+        "en": "First Bank",
+        "ja": "第一銀行"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 60,
+      "name": {
+        "zh": "北投公園",
+        "en": "Beitou Park",
+        "ja": "北投公園"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 61,
+      "name": {
+        "zh": "新北投",
+        "en": "Xinbeitou",
+        "ja": "新北投"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "isTerminal": true
+    }
+  ]
+}

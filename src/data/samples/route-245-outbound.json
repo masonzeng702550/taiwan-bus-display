@@ -38,7 +38,7 @@
     "direction": "outbound",
     "destination": {
       "zh": "捷運台大醫院站",
-      "en": "",
+      "en": "MRT NTU Hospital Station",
       "ja": "捷運台大醫院站"
     }
   },
@@ -67,7 +67,7 @@
       "seq": 1,
       "name": {
         "zh": "四海站",
-        "en": "",
+        "en": "Sihai Station",
         "ja": "四海站"
       },
       "fare": {
@@ -79,7 +79,7 @@
       "seq": 2,
       "name": {
         "zh": "少年觀護所",
-        "en": "",
+        "en": "Juvenile Detention House",
         "ja": "少年觀護所"
       },
       "fare": {
@@ -91,7 +91,7 @@
       "seq": 3,
       "name": {
         "zh": "清化里",
-        "en": "",
+        "en": "Qinghua Village",
         "ja": "清化里"
       },
       "fare": {
@@ -103,7 +103,7 @@
       "seq": 4,
       "name": {
         "zh": "宏國德霖科技大學",
-        "en": "",
+        "en": "Hungkuo Delin University of Technology",
         "ja": "宏國德霖科技大學"
       },
       "fare": {
@@ -115,7 +115,7 @@
       "seq": 5,
       "name": {
         "zh": "清和里",
-        "en": "",
+        "en": "Qinghe Village",
         "ja": "清和里"
       },
       "fare": {
@@ -127,7 +127,7 @@
       "seq": 6,
       "name": {
         "zh": "檳榔科",
-        "en": "",
+        "en": "Binlangke",
         "ja": "檳榔科"
       },
       "fare": {
@@ -139,7 +139,7 @@
       "seq": 7,
       "name": {
         "zh": "清水派出所",
-        "en": "",
+        "en": "Qingshui Police Station",
         "ja": "清水派出所"
       },
       "fare": {
@@ -151,7 +151,7 @@
       "seq": 8,
       "name": {
         "zh": "清水",
-        "en": "",
+        "en": "Qingshui",
         "ja": "清水"
       },
       "fare": {
@@ -163,7 +163,7 @@
       "seq": 9,
       "name": {
         "zh": "臺灣新北地方法院(青雲)",
-        "en": "",
+        "en": "Taiwan New Taipei District Court (Qingyun)",
         "ja": "臺灣新北地方法院(青雲)"
       },
       "fare": {
@@ -175,7 +175,7 @@
       "seq": 10,
       "name": {
         "zh": "土城看守所",
-        "en": "",
+        "en": "Tucheng Detention Center",
         "ja": "土城看守所"
       },
       "fare": {
@@ -187,7 +187,7 @@
       "seq": 11,
       "name": {
         "zh": "看守所",
-        "en": "",
+        "en": "Detention Center",
         "ja": "看守所"
       },
       "fare": {
@@ -199,7 +199,7 @@
       "seq": 12,
       "name": {
         "zh": "四汴頭",
-        "en": "",
+        "en": "Sibiantou",
         "ja": "四汴頭"
       },
       "fare": {
@@ -211,7 +211,7 @@
       "seq": 13,
       "name": {
         "zh": "益華紡織",
-        "en": "",
+        "en": "Yihua Textile",
         "ja": "益華紡織"
       },
       "fare": {
@@ -223,7 +223,7 @@
       "seq": 14,
       "name": {
         "zh": "信義路",
-        "en": "",
+        "en": "Xinyi Road",
         "ja": "信義路"
       },
       "fare": {
@@ -235,7 +235,7 @@
       "seq": 15,
       "name": {
         "zh": "板橋後站",
-        "en": "",
+        "en": "Banqiao Rear Station",
         "ja": "板橋後站"
       },
       "fare": {
@@ -247,7 +247,7 @@
       "seq": 16,
       "name": {
         "zh": "重慶國小",
-        "en": "",
+        "en": "Chongqing Elementary School",
         "ja": "重慶國小"
       },
       "fare": {
@@ -259,7 +259,7 @@
       "seq": 17,
       "name": {
         "zh": "五權街口",
-        "en": "",
+        "en": "Wuquan St. Intersection",
         "ja": "五權街口"
       },
       "fare": {
@@ -271,7 +271,7 @@
       "seq": 18,
       "name": {
         "zh": "壽德新村",
-        "en": "",
+        "en": "Shoude New Village",
         "ja": "壽德新村"
       },
       "fare": {
@@ -283,7 +283,7 @@
       "seq": 19,
       "name": {
         "zh": "重慶國中",
-        "en": "",
+        "en": "Chongqing Junior High School",
         "ja": "重慶國中"
       },
       "fare": {
@@ -295,7 +295,7 @@
       "seq": 20,
       "name": {
         "zh": "重慶忠孝路口",
-        "en": "",
+        "en": "Chongqing-Zhongxiao Rd. Intersection",
         "ja": "重慶忠孝路口"
       },
       "fare": {
@@ -307,7 +307,7 @@
       "seq": 21,
       "name": {
         "zh": "忠孝路",
-        "en": "",
+        "en": "Zhongxiao Road",
         "ja": "忠孝路"
       },
       "fare": {
@@ -319,7 +319,7 @@
       "seq": 22,
       "name": {
         "zh": "中興醫院",
-        "en": "",
+        "en": "Zhongxing Hospital",
         "ja": "中興醫院"
       },
       "fare": {
@@ -331,7 +331,7 @@
       "seq": 23,
       "name": {
         "zh": "福星里",
-        "en": "",
+        "en": "Fuxing Village",
         "ja": "福星里"
       },
       "fare": {
@@ -343,7 +343,7 @@
       "seq": 24,
       "name": {
         "zh": "鄉雲里",
-        "en": "",
+        "en": "Xiangyun Village",
         "ja": "鄉雲里"
       },
       "fare": {
@@ -355,7 +355,7 @@
       "seq": 25,
       "name": {
         "zh": "後站商圈",
-        "en": "",
+        "en": "Rear Station Shopping District",
         "ja": "後站商圈"
       },
       "fare": {
@@ -367,7 +367,7 @@
       "seq": 26,
       "name": {
         "zh": "介壽公園",
-        "en": "",
+        "en": "Jieshou Park",
         "ja": "介壽公園"
       },
       "fare": {
@@ -379,7 +379,7 @@
       "seq": 27,
       "name": {
         "zh": "民權路口",
-        "en": "",
+        "en": "Minquan Rd. Intersection",
         "ja": "民權路口"
       },
       "fare": {
@@ -391,7 +391,7 @@
       "seq": 28,
       "name": {
         "zh": "新北市政府(新府路)",
-        "en": "",
+        "en": "New Taipei City Government (Xinfu Rd.)",
         "ja": "新北市政府(新府路)"
       },
       "fare": {
@@ -403,7 +403,7 @@
       "seq": 29,
       "name": {
         "zh": "新北板橋公車站",
-        "en": "",
+        "en": "New Taipei Banqiao Bus Station",
         "ja": "新北板橋公車站"
       },
       "fare": {
@@ -415,19 +415,29 @@
       "seq": 30,
       "name": {
         "zh": "板橋車站(文化路)",
-        "en": "",
+        "en": "Banqiao Station (Wenhua Rd.)",
         "ja": "板橋車站(文化路)"
       },
       "fare": {
         "adult": 15,
         "child": 8
-      }
+      },
+      "transfers": [
+        {
+          "type": "tra",
+          "operator": {
+            "zh": "台灣鐵路",
+            "en": "Taiwan Railway",
+            "ja": "台湾鉄路"
+          }
+        }
+      ]
     },
     {
       "seq": 31,
       "name": {
         "zh": "中山國中",
-        "en": "",
+        "en": "Zhongshan Junior High School",
         "ja": "中山國中"
       },
       "fare": {
@@ -439,7 +449,7 @@
       "seq": 32,
       "name": {
         "zh": "致理科技大學",
-        "en": "",
+        "en": "Chihlee University of Technology",
         "ja": "致理科技大學"
       },
       "fare": {
@@ -451,7 +461,7 @@
       "seq": 33,
       "name": {
         "zh": "捷運新埔站(文化路)",
-        "en": "",
+        "en": "MRT Xinpu Station (Wenhua Rd.)",
         "ja": "捷運新埔站(文化路)"
       },
       "fare": {
@@ -478,7 +488,7 @@
       "seq": 34,
       "name": {
         "zh": "新北市議會",
-        "en": "",
+        "en": "New Taipei City Council",
         "ja": "新北市議會"
       },
       "fare": {
@@ -490,7 +500,7 @@
       "seq": 35,
       "name": {
         "zh": "江翠國中",
-        "en": "",
+        "en": "Jiangcui Junior High School",
         "ja": "江翠國中"
       },
       "fare": {
@@ -502,7 +512,7 @@
       "seq": 36,
       "name": {
         "zh": "捷運江子翠站",
-        "en": "",
+        "en": "MRT Jiangzicui Station",
         "ja": "捷運江子翠站"
       },
       "fare": {
@@ -529,7 +539,7 @@
       "seq": 37,
       "name": {
         "zh": "華江橋",
-        "en": "",
+        "en": "Huajiang Bridge",
         "ja": "華江橋"
       },
       "fare": {
@@ -541,7 +551,7 @@
       "seq": 38,
       "name": {
         "zh": "中國時報",
-        "en": "",
+        "en": "China Times",
         "ja": "中國時報"
       },
       "fare": {
@@ -553,7 +563,7 @@
       "seq": 39,
       "name": {
         "zh": "捷運龍山寺站",
-        "en": "",
+        "en": "MRT Longshan Temple Station",
         "ja": "捷運龍山寺站"
       },
       "fare": {
@@ -580,7 +590,7 @@
       "seq": 40,
       "name": {
         "zh": "龍山國中",
-        "en": "",
+        "en": "Longshan Junior High School",
         "ja": "龍山國中"
       },
       "fare": {
@@ -592,7 +602,7 @@
       "seq": 41,
       "name": {
         "zh": "小南門",
-        "en": "",
+        "en": "Xiaonanmen",
         "ja": "小南門"
       },
       "fare": {
@@ -604,7 +614,7 @@
       "seq": 42,
       "name": {
         "zh": "捷運西門站",
-        "en": "",
+        "en": "MRT Ximen Station",
         "ja": "捷運西門站"
       },
       "fare": {
@@ -631,7 +641,7 @@
       "seq": 43,
       "name": {
         "zh": "寶慶路",
-        "en": "",
+        "en": "Baoqing Road",
         "ja": "寶慶路"
       },
       "fare": {
@@ -643,7 +653,7 @@
       "seq": 44,
       "name": {
         "zh": "博愛路",
-        "en": "",
+        "en": "Bo'ai Road",
         "ja": "博愛路"
       },
       "fare": {
@@ -655,7 +665,7 @@
       "seq": 45,
       "name": {
         "zh": "重慶南路一段",
-        "en": "",
+        "en": "Chongqing S. Rd. Sec. 1",
         "ja": "重慶南路一段"
       },
       "fare": {
@@ -667,7 +677,7 @@
       "seq": 46,
       "name": {
         "zh": "博物館(襄陽)",
-        "en": "",
+        "en": "Museum (Xiangyang)",
         "ja": "博物館(襄陽)"
       },
       "fare": {
@@ -679,7 +689,7 @@
       "seq": 47,
       "name": {
         "zh": "捷運台大醫院站",
-        "en": "",
+        "en": "MRT NTU Hospital Station",
         "ja": "捷運台大醫院站"
       },
       "fare": {
