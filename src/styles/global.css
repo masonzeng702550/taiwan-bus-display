@@ -55,6 +55,9 @@ input:focus, select:focus { outline: none; border-color: var(--ui-accent); }
 .error { color: #ff6b6b; }
 
 .voices-panel { margin-top: 12px; }
+.lang-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+.lang-check { display: inline-flex; align-items: center; gap: 6px; color: var(--ui-text); font-size: 14px; }
+.lang-check input { width: auto; }
 .voices-grid { display: flex; flex-direction: column; gap: 8px; }
 .voice-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .voice-row .voice-lang { width: 72px; color: var(--ui-muted); font-size: 14px; }

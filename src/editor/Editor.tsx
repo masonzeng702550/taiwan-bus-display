@@ -10,6 +10,8 @@ import { useVoices } from "./useVoices";
 import { NextStop } from "../player/pages/NextStop";
 
 const LANG_LABEL: Record<Lang, string> = { zh: "中文", en: "English", ja: "日本語" };
+// Fixed UI order so the Taiwan and Japan layouts have controls in the same place.
+const LANG_ORDER: Lang[] = ["zh", "en", "ja"];
 
 const TRANSFER_TYPES: TransferType[] = ["metro", "tra", "thsr", "bus", "other"];
 
@@ -49,6 +51,18 @@ export function Editor({
 
   const setVoice = (lang: Lang, voiceURI: string) =>
     update({ settings: { ...route.settings, voices: { ...route.settings.voices, [lang]: voiceURI } } });
+
+  // Languages selected for broadcast + display. Kept in a locale-appropriate
+  // speaking order, but the editor always shows the controls in LANG_ORDER.
+  const activeLangs = route.settings.languages;
+  const toggleLang = (lang: Lang) => {
+    const set = new Set(activeLangs);
+    if (set.has(lang)) set.delete(lang);
+    else set.add(lang);
+    if (set.size === 0) return; // keep at least one language
+    const order: Lang[] = (route.locale ?? "zh") === "ja" ? ["ja", "en", "zh"] : ["zh", "en", "ja"];
+    update({ settings: { ...route.settings, languages: order.filter((l) => set.has(l)) } });
+  };
 
   const update = (patch: Partial<RouteFile>) => onChange({ ...route, ...patch });
 
@@ -170,15 +184,24 @@ export function Editor({
         <section className="panel preview" style={cssVars}>
           <h2>即時預覽（下一站）</h2>
           <div className="preview-frame">
-            {route.stops[0] && <NextStop route={route} stop={route.stops[0]} locale={route.locale ?? "zh"} />}
+            {route.stops[0] && <NextStop route={route} stop={route.stops[0]} locale={route.locale ?? "zh"} langs={route.settings.languages} />}
           </div>
         </section>
       </div>
 
       <section className="panel voices-panel">
-        <h2>④ 廣播語音（依裝置已安裝的語音而定）</h2>
+        <h2>④ 廣播與顯示語言（依裝置已安裝的語音而定）</h2>
+        <div className="lang-row">
+          <span className="voice-lang">使用語言</span>
+          {LANG_ORDER.map((l) => (
+            <label key={l} className="lang-check">
+              <input type="checkbox" checked={activeLangs.includes(l)} onChange={() => toggleLang(l)} />
+              {LANG_LABEL[l]}
+            </label>
+          ))}
+        </div>
         <div className="voices-grid">
-          {(route.settings.languages as Lang[]).map((lang) => {
+          {LANG_ORDER.filter((l) => activeLangs.includes(l)).map((lang) => {
             const list = voicesForLang(lang);
             const selected = route.settings.voices?.[lang] ?? "";
             return (

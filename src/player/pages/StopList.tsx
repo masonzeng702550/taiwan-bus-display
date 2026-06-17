@@ -1,4 +1,4 @@
-import type { RouteFile } from "../../types";
+import type { Lang, RouteFile } from "../../types";
 import { TransferIcon } from "../icons";
 import { FitText } from "../FitText";
 import { primaryText, readingText, subText, type Locale } from "../display";
@@ -7,7 +7,9 @@ import { primaryText, readingText, subText, type Locale } from "../display";
 // curved golden band, large orange ovals (dark-outlined) sitting on it stepping
 // down-and-left, and the next stop's teal circle at the bottom. Connector lines
 // run right to each station name and become the separator between zh and en.
-export function StopList({ route, currentSeq, locale }: { route: RouteFile; currentSeq: number; locale: Locale }) {
+export function StopList({ route, currentSeq, locale, langs }: { route: RouteFile; currentSeq: number; locale: Locale; langs: Lang[] }) {
+  const showReading = langs.includes("ja");
+  const showEn = langs.includes("en");
   const count = route.settings.stopListCount;
   const upcoming = route.stops.filter((s) => s.seq >= currentSeq).slice(0, count);
   // Render far -> near (top to bottom); the last item is the next stop.
@@ -88,7 +90,7 @@ export function StopList({ route, currentSeq, locale }: { route: RouteFile; curr
                       ) : null}
                     </FitText>
                   </div>
-                  {readingText(s.name, locale) && (
+                  {showReading && readingText(s.name, locale) && (
                     <div className="ja-wrap">
                       <FitText className="row-ja" max={isNext ? 32 : 27} recalcKey={readingText(s.name, locale)}>
                         {readingText(s.name, locale)}
@@ -97,11 +99,13 @@ export function StopList({ route, currentSeq, locale }: { route: RouteFile; curr
                   )}
                 </div>
                 <div className="row-sep" />
-                <div className="row-en-box">
-                  <FitText className="row-en" max={isNext ? 34 : 28} recalcKey={subText(s.name)}>
-                    {subText(s.name)}
-                  </FitText>
-                </div>
+                {showEn && (
+                  <div className="row-en-box">
+                    <FitText className="row-en" max={isNext ? 34 : 28} recalcKey={subText(s.name)}>
+                      {subText(s.name)}
+                    </FitText>
+                  </div>
+                )}
               </div>
             );
           })}

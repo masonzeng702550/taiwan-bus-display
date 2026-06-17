@@ -145,9 +145,9 @@ export function Player({ route, onExit }: { route: RouteFile; onExit: () => void
         </div>
       ) : (
         <>
-          {page === "nextStop" && currentStop && <NextStop route={route} stop={currentStop} locale={locale} />}
-          {page === "stopList" && <StopList route={route} currentSeq={currentSeq} locale={locale} />}
-          {page === "transfer" && transfers[transferIdx] && <Transfer transfer={transfers[transferIdx]} locale={locale} />}
+          {page === "nextStop" && currentStop && <NextStop route={route} stop={currentStop} locale={locale} langs={route.settings.languages} />}
+          {page === "stopList" && <StopList route={route} currentSeq={currentSeq} locale={locale} langs={route.settings.languages} />}
+          {page === "transfer" && transfers[transferIdx] && <Transfer transfer={transfers[transferIdx]} locale={locale} langs={route.settings.languages} />}
           <div className="player-hud">
             <span>{mode === "gps" ? "GPS" : "手動"}{paused ? " · 暫停" : ""}{isFullscreen ? "" : " · 視窗"}</span>
             <button className="link-btn" onClick={onExit}>← 設定</button>
