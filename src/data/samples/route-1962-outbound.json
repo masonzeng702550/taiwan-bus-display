@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "operator": {
+    "id": "teal",
+    "name": {
+      "zh": "大有巴士",
+      "en": "Da-You Bus",
+      "ja": "大有バス"
+    },
+    "themeId": "teal"
+  },
+  "theme": {
+    "id": "teal",
+    "name": "通用 · 青綠",
+    "primary": "#008c8c",
+    "headerGradient": [
+      "#00696e",
+      "#00b3a6"
+    ],
+    "accent": "#ffd200",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#008c8c"
+  },
+  "route": {
+    "id": "1962",
+    "number": "1962",
+    "name": {
+      "zh": "1962",
+      "en": "Route 1962",
+      "ja": "1962系統"
+    },
+    "direction": "outbound",
+    "destination": {
+      "zh": "桃園機場第一航廈",
+      "en": "Taoyuan Airport Terminal 1",
+      "ja": "桃園機場第一航廈"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "ttsRate": 1,
+    "showFare": false,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    }
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "板橋客運站",
+        "en": "Banqiao Bus Station",
+        "ja": "板橋客運站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "板橋外站",
+        "en": "Banqiao Outer Station",
+        "ja": "板橋外站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "鄉雲里",
+        "en": "Xiangyun Village",
+        "ja": "鄉雲里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "仁愛新村",
+        "en": "Ren'ai New Village",
+        "ja": "仁愛新村"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "亞東科技大學",
+        "en": "Asia Eastern Univ. of Sci. and Tech.",
+        "ja": "亞東科技大學"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "貨饒里",
+        "en": "Huorao Village",
+        "ja": "貨饒里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "日新里",
+        "en": "Rixing Village",
+        "ja": "日新里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "大同莊園",
+        "en": "Datong Manor",
+        "ja": "大同莊園"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "員林里",
+        "en": "Yuanlin Village",
+        "ja": "員林里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "土城農會",
+        "en": "Tucheng Farmers' Association",
+        "ja": "土城農會"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "捷運永寧站",
+        "en": "MRT Yongning Station",
+        "ja": "捷運永寧站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "永寧站",
+            "en": "",
+            "ja": "永寧站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "桃園機場第二航廈",
+        "en": "Taoyuan Airport Terminal 2",
+        "ja": "桃園機場第二航廈"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "桃園機場第一航廈",
+        "en": "Taoyuan Airport Terminal 1",
+        "ja": "桃園機場第一航廈"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "isTerminal": true
+    }
+  ]
+}

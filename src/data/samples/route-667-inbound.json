@@ -1,0 +1,486 @@
+{
+  "schemaVersion": 1,
+  "operator": {
+    "id": "tpe-union",
+    "name": {
+      "zh": "臺北客運",
+      "en": "Taipei Bus",
+      "ja": "台北客運"
+    },
+    "themeId": "tpe-union"
+  },
+  "theme": {
+    "id": "tpe-union",
+    "name": "台北聯營 / 大都會客運",
+    "primary": "#9b30ff",
+    "headerGradient": [
+      "#7b1fa2",
+      "#b14aff"
+    ],
+    "accent": "#ff8c00",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#9b30ff"
+  },
+  "route": {
+    "id": "667",
+    "number": "667",
+    "name": {
+      "zh": "667 路",
+      "en": "Route 667",
+      "ja": "667系統"
+    },
+    "direction": "inbound",
+    "destination": {
+      "zh": "板橋後站",
+      "en": "",
+      "ja": "板橋後站"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "ttsRate": 1,
+    "showFare": true,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    }
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "中華路北站",
+        "en": "",
+        "ja": "中華路北站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "捷運西門站",
+        "en": "",
+        "ja": "捷運西門站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "西門站",
+            "en": "",
+            "ja": "西門站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "小南門",
+        "en": "",
+        "ja": "小南門"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "聯合醫院和平院區",
+        "en": "",
+        "ja": "聯合醫院和平院區"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "艋舺大道",
+        "en": "",
+        "ja": "艋舺大道"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "萬華車站",
+        "en": "",
+        "ja": "萬華車站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "時報大樓",
+        "en": "",
+        "ja": "時報大樓"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "雙園街口",
+        "en": "",
+        "ja": "雙園街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "雙十路口",
+        "en": "",
+        "ja": "雙十路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "富山街口",
+        "en": "",
+        "ja": "富山街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "埤墘里",
+        "en": "",
+        "ja": "埤墘里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "華翠大橋",
+        "en": "",
+        "ja": "華翠大橋"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "中山國中(縣民大道)",
+        "en": "",
+        "ja": "中山國中(縣民大道)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 14,
+      "name": {
+        "zh": "新北板橋公車站",
+        "en": "",
+        "ja": "新北板橋公車站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 15,
+      "name": {
+        "zh": "新北市政府(新府路)",
+        "en": "",
+        "ja": "新北市政府(新府路)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 16,
+      "name": {
+        "zh": "民權路口",
+        "en": "",
+        "ja": "民權路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 17,
+      "name": {
+        "zh": "板橋外站",
+        "en": "",
+        "ja": "板橋外站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 18,
+      "name": {
+        "zh": "後站商圈",
+        "en": "",
+        "ja": "後站商圈"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 19,
+      "name": {
+        "zh": "介壽公園(館前東路)",
+        "en": "",
+        "ja": "介壽公園(館前東路)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 20,
+      "name": {
+        "zh": "實踐成都街口",
+        "en": "",
+        "ja": "實踐成都街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 21,
+      "name": {
+        "zh": "後埔國小",
+        "en": "",
+        "ja": "後埔國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 22,
+      "name": {
+        "zh": "福德里",
+        "en": "",
+        "ja": "福德里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 23,
+      "name": {
+        "zh": "民德路",
+        "en": "",
+        "ja": "民德路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 24,
+      "name": {
+        "zh": "德光路",
+        "en": "",
+        "ja": "德光路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 25,
+      "name": {
+        "zh": "德光路口",
+        "en": "",
+        "ja": "德光路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 26,
+      "name": {
+        "zh": "莒光路",
+        "en": "",
+        "ja": "莒光路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 27,
+      "name": {
+        "zh": "國光派出所",
+        "en": "",
+        "ja": "國光派出所"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 28,
+      "name": {
+        "zh": "自強國小",
+        "en": "",
+        "ja": "自強國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 29,
+      "name": {
+        "zh": "華安街口",
+        "en": "",
+        "ja": "華安街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 30,
+      "name": {
+        "zh": "壽德街口",
+        "en": "",
+        "ja": "壽德街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 31,
+      "name": {
+        "zh": "五權公園",
+        "en": "",
+        "ja": "五權公園"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 32,
+      "name": {
+        "zh": "廣福公園",
+        "en": "",
+        "ja": "廣福公園"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 33,
+      "name": {
+        "zh": "干城路口",
+        "en": "",
+        "ja": "干城路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 34,
+      "name": {
+        "zh": "板橋後站",
+        "en": "",
+        "ja": "板橋後站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "isTerminal": true
+    }
+  ]
+}

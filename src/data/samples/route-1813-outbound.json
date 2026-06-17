@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "operator": {
+    "id": "kingbus",
+    "name": {
+      "zh": "國光客運",
+      "en": "Kuo-Kuang Bus",
+      "ja": "国光客運"
+    },
+    "themeId": "kingbus"
+  },
+  "theme": {
+    "id": "kingbus",
+    "name": "桃園 / 國光客運（長途）",
+    "primary": "#c8102e",
+    "headerGradient": [
+      "#9e0b22",
+      "#e2243d"
+    ],
+    "accent": "#ffd200",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#c8102e"
+  },
+  "route": {
+    "id": "1813",
+    "number": "1813",
+    "name": {
+      "zh": "1813",
+      "en": "Route 1813",
+      "ja": "1813系統"
+    },
+    "direction": "outbound",
+    "destination": {
+      "zh": "基隆轉運站",
+      "en": "Keelung Transit Station",
+      "ja": "基隆轉運站"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "ttsRate": 1,
+    "showFare": false,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    }
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "臺北車站(東三門)",
+        "en": "Taipei Station (East Gate)",
+        "ja": "臺北車站(東三門)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "基隆轉運站",
+        "en": "Keelung Transit Station",
+        "ja": "基隆轉運站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "isTerminal": true
+    }
+  ]
+}

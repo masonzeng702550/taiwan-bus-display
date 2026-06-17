@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 1,
+  "operator": {
+    "id": "tpe-union",
+    "name": {
+      "zh": "三重客運",
+      "en": "Sanchong Bus",
+      "ja": "三重客運"
+    },
+    "themeId": "tpe-union"
+  },
+  "theme": {
+    "id": "tpe-union",
+    "name": "台北聯營 / 大都會客運",
+    "primary": "#9b30ff",
+    "headerGradient": [
+      "#7b1fa2",
+      "#b14aff"
+    ],
+    "accent": "#ff8c00",
+    "textColor": "#ffffff",
+    "bgColor": "#000000",
+    "dividerColor": "#9b30ff"
+  },
+  "route": {
+    "id": "265區",
+    "number": "265區",
+    "name": {
+      "zh": "265 區間車",
+      "en": "Route 265 (Zone)",
+      "ja": "265系統 区間"
+    },
+    "direction": "inbound",
+    "destination": {
+      "zh": "重慶國中(國慶路)",
+      "en": "",
+      "ja": "重慶國中(國慶路)"
+    }
+  },
+  "settings": {
+    "cycleSeconds": {
+      "nextStop": 6,
+      "stopList": 6,
+      "transfer": 6
+    },
+    "languages": [
+      "zh",
+      "en",
+      "ja"
+    ],
+    "ttsRate": 1,
+    "showFare": true,
+    "stopListCount": 4,
+    "voices": {
+      "zh": "美佳",
+      "en": "Samantha",
+      "ja": "O-Ren"
+    }
+  },
+  "stops": [
+    {
+      "seq": 1,
+      "name": {
+        "zh": "臺北車站(忠孝)",
+        "en": "",
+        "ja": "臺北車站(忠孝)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 2,
+      "name": {
+        "zh": "中華路北站",
+        "en": "",
+        "ja": "中華路北站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 3,
+      "name": {
+        "zh": "捷運西門站",
+        "en": "",
+        "ja": "捷運西門站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "transfers": [
+        {
+          "type": "metro",
+          "operator": {
+            "zh": "台北捷運",
+            "en": "Taipei Metro",
+            "ja": "台北メトロ"
+          },
+          "station": {
+            "zh": "西門站",
+            "en": "",
+            "ja": "西門站"
+          }
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "name": {
+        "zh": "小南門",
+        "en": "",
+        "ja": "小南門"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 5,
+      "name": {
+        "zh": "桂林昆明街口",
+        "en": "",
+        "ja": "桂林昆明街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 6,
+      "name": {
+        "zh": "桂林路",
+        "en": "",
+        "ja": "桂林路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 7,
+      "name": {
+        "zh": "龍山寺(西園)",
+        "en": "",
+        "ja": "龍山寺(西園)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 8,
+      "name": {
+        "zh": "大理服飾",
+        "en": "",
+        "ja": "大理服飾"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 9,
+      "name": {
+        "zh": "西園29服飾基地",
+        "en": "",
+        "ja": "西園29服飾基地"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 10,
+      "name": {
+        "zh": "華江高中(西園)",
+        "en": "",
+        "ja": "華江高中(西園)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 11,
+      "name": {
+        "zh": "西園路二段",
+        "en": "",
+        "ja": "西園路二段"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 12,
+      "name": {
+        "zh": "光復橋",
+        "en": "",
+        "ja": "光復橋"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 13,
+      "name": {
+        "zh": "埔墘派出所",
+        "en": "",
+        "ja": "埔墘派出所"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 14,
+      "name": {
+        "zh": "埔墘(中山路)",
+        "en": "",
+        "ja": "埔墘(中山路)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 15,
+      "name": {
+        "zh": "埔墘國小",
+        "en": "",
+        "ja": "埔墘國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 16,
+      "name": {
+        "zh": "中山民生路口",
+        "en": "",
+        "ja": "中山民生路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 17,
+      "name": {
+        "zh": "西安里",
+        "en": "",
+        "ja": "西安里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 18,
+      "name": {
+        "zh": "中山漢生路口",
+        "en": "",
+        "ja": "中山漢生路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 19,
+      "name": {
+        "zh": "漢生路",
+        "en": "",
+        "ja": "漢生路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 20,
+      "name": {
+        "zh": "海山高中",
+        "en": "",
+        "ja": "海山高中"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 21,
+      "name": {
+        "zh": "海山國小",
+        "en": "",
+        "ja": "海山國小"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 22,
+      "name": {
+        "zh": "瑞穗里",
+        "en": "",
+        "ja": "瑞穗里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 23,
+      "name": {
+        "zh": "國泰街口",
+        "en": "",
+        "ja": "國泰街口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 24,
+      "name": {
+        "zh": "電信訓練所",
+        "en": "",
+        "ja": "電信訓練所"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 25,
+      "name": {
+        "zh": "民族區運路口",
+        "en": "",
+        "ja": "民族區運路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 26,
+      "name": {
+        "zh": "板橋外站",
+        "en": "",
+        "ja": "板橋外站"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 27,
+      "name": {
+        "zh": "後站商圈",
+        "en": "",
+        "ja": "後站商圈"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 28,
+      "name": {
+        "zh": "鄉雲里",
+        "en": "",
+        "ja": "鄉雲里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 29,
+      "name": {
+        "zh": "福星里",
+        "en": "",
+        "ja": "福星里"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 30,
+      "name": {
+        "zh": "中興醫院",
+        "en": "",
+        "ja": "中興醫院"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 31,
+      "name": {
+        "zh": "忠孝路",
+        "en": "",
+        "ja": "忠孝路"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 32,
+      "name": {
+        "zh": "重慶忠孝路口",
+        "en": "",
+        "ja": "重慶忠孝路口"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      }
+    },
+    {
+      "seq": 33,
+      "name": {
+        "zh": "重慶國中(國慶路)",
+        "en": "",
+        "ja": "重慶國中(國慶路)"
+      },
+      "fare": {
+        "adult": 15,
+        "child": 8
+      },
+      "isTerminal": true
+    }
+  ]
+}
