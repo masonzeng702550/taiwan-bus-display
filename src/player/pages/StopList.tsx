@@ -13,9 +13,24 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
   const rows = [...upcoming].reverse();
   const n = rows.length;
 
-  // Marker position along the band centreline (% of rail zone): top is right.
-  const markerX = (idx: number) => (n > 1 ? 60 - (idx / (n - 1)) * 38 : 40);
+  // Place each marker on the band's actual centreline. The band centreline is a
+  // cubic bezier (the average of the band's two edges); evaluate it at each row's
+  // vertical position so the circles sit on the curve rather than a straight line.
   const rowY = (idx: number) => ((idx + 0.5) / n) * 100;
+  const bez = (a: number, b: number, c: number, d: number, t: number) => {
+    const u = 1 - t;
+    return u * u * u * a + 3 * u * u * t * b + 3 * u * t * t * c + t * t * t * d;
+  };
+  const markerX = (idx: number) => {
+    const yPct = rowY(idx);
+    let lo = 0, hi = 1;
+    for (let i = 0; i < 28; i++) {
+      const m = (lo + hi) / 2;
+      if (bez(-6, 28, 62, 106, m) < yPct) lo = m;
+      else hi = m;
+    }
+    return bez(64, 43, 30, 21, (lo + hi) / 2); // centreline x at that y
+  };
 
   return (
     <div className="screen stop-list">
@@ -34,7 +49,7 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
                 <stop offset="100%" stopColor="#ecd221" />
               </linearGradient>
             </defs>
-            <path d="M76,-6 C57,28 45,62 37,106 L7,106 C15,62 29,28 50,-6 Z" fill="url(#railFill)" />
+            <path d="M78,-6 C58,28 46,62 38,106 L4,106 C14,62 28,28 50,-6 Z" fill="url(#railFill)" />
           </svg>
           {rows.map((s, idx) => {
             const isNext = idx === n - 1;
