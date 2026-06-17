@@ -1,7 +1,9 @@
 import type { RouteFile, Stop } from "../../types";
+import { FitText } from "../FitText";
 
 // "Next Stop" screen: optional fare bar across the top, then the upcoming stop
-// name large in Chinese with the English reading beneath.
+// name large in Chinese with the English reading beneath. Both names are kept
+// on a single line, shrinking to fit.
 export function NextStop({ route, stop }: { route: RouteFile; stop: Stop }) {
   const showFare = route.settings.showFare && !!stop.fare;
   return (
@@ -20,9 +22,9 @@ export function NextStop({ route, stop }: { route: RouteFile; stop: Stop }) {
         次は <small>Next Stop:</small>
       </div>
       <div className="next-box">
-        <div className="stop-zh fit">{stop.name.zh}</div>
+        <FitText className="stop-zh" max={120} recalcKey={stop.name.zh}>{stop.name.zh}</FitText>
         <div className="divider-line" />
-        <div className="stop-en">{stop.name.en}</div>
+        <FitText className="stop-en" max={56} recalcKey={stop.name.en}>{stop.name.en}</FitText>
       </div>
     </div>
   );

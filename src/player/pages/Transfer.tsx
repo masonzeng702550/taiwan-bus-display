@@ -1,5 +1,6 @@
 import type { Transfer as TransferData } from "../../types";
 import { TransferIcon } from "../icons";
+import { FitText } from "../FitText";
 
 // "Transfer" screen: header bar, then the connecting operator (icon + name)
 // and the station name large in Chinese with the English reading beneath.
@@ -22,8 +23,8 @@ export function Transfer({ transfer }: { transfer: TransferData }) {
         {transfer.station && (
           <>
             <div className="divider-line" />
-            <div className="station-zh fit">{transfer.station.zh}</div>
-            <div className="station-en">{transfer.station.en}</div>
+            <FitText className="station-zh" max={120} recalcKey={transfer.station.zh}>{transfer.station.zh}</FitText>
+            <FitText className="station-en" max={56} recalcKey={transfer.station.en}>{transfer.station.en}</FitText>
           </>
         )}
       </div>

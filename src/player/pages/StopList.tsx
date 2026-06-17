@@ -1,10 +1,11 @@
 import type { RouteFile } from "../../types";
 import { TransferIcon } from "../icons";
+import { FitText } from "../FitText";
 
-// "Stop List" screen. The left rail matches the reference Kyoto layout: orange
-// oval markers step diagonally down-and-left (top marker furthest right, the
-// next stop's teal circle at the bottom-left), sitting on a curved golden band,
-// with thin connector lines running right to each station name.
+// "Stop List" screen. The left rail matches the reference Kyoto layout: a thick
+// curved golden band, large orange ovals (dark-outlined) sitting on it stepping
+// down-and-left, and the next stop's teal circle at the bottom. Connector lines
+// run right to each station name and become the separator between zh and en.
 export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: number }) {
   const count = route.settings.stopListCount;
   const upcoming = route.stops.filter((s) => s.seq >= currentSeq).slice(0, count);
@@ -12,8 +13,8 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
   const rows = [...upcoming].reverse();
   const n = rows.length;
 
-  // Marker horizontal position (% of rail zone): top is rightmost, bottom-left.
-  const markerX = (idx: number) => (n > 1 ? 70 - (idx / (n - 1)) * 46 : 42);
+  // Marker position along the band centreline (% of rail zone): top is right.
+  const markerX = (idx: number) => (n > 1 ? 60 - (idx / (n - 1)) * 38 : 40);
   const rowY = (idx: number) => ((idx + 0.5) / n) * 100;
 
   return (
@@ -27,12 +28,13 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
           <svg className="rail-band" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
             <defs>
               <linearGradient id="railFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#f2a51c" />
-                <stop offset="55%" stopColor="#f6d22a" />
-                <stop offset="100%" stopColor="#5e4f12" />
+                <stop offset="0%" stopColor="#ef9a1e" />
+                <stop offset="24%" stopColor="#f6cf2b" />
+                <stop offset="62%" stopColor="#f8e85e" />
+                <stop offset="100%" stopColor="#ecd221" />
               </linearGradient>
             </defs>
-            <path d="M64,-3 C38,22 20,56 4,103 L54,103 C38,56 62,22 90,-3 Z" fill="url(#railFill)" />
+            <path d="M76,-6 C57,28 45,62 37,106 L7,106 C15,62 29,28 50,-6 Z" fill="url(#railFill)" />
           </svg>
           {rows.map((s, idx) => {
             const isNext = idx === n - 1;
@@ -41,10 +43,7 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
             return (
               <div key={s.seq}>
                 <span className="connector" style={{ top: `${y}%`, left: `${x}%` }} />
-                <span
-                  className={isNext ? "next-circle" : "dot"}
-                  style={{ top: `${y}%`, left: `${x}%` }}
-                >
+                <span className={isNext ? "next-circle" : "dot"} style={{ top: `${y}%`, left: `${x}%` }}>
                   {isNext && (
                     <>
                       次は<span className="next-en">Next Stop</span>
@@ -61,20 +60,32 @@ export function StopList({ route, currentSeq }: { route: RouteFile; currentSeq: 
             return (
               <div key={s.seq} className={`list-row${isNext ? " next" : ""}`}>
                 <div className="row-top">
-                  <span className="row-zh">
-                    {s.name.zh}
-                    {s.transfers?.length ? (
-                      <span className="row-transfers">
-                        {s.transfers.map((t, i) => (
-                          <TransferIcon key={i} type={t.type} />
-                        ))}
-                      </span>
-                    ) : null}
-                  </span>
-                  {s.name.ja && <span className="row-ja">{s.name.ja}</span>}
+                  <div className="zh-wrap">
+                    <FitText className="row-zh" max={isNext ? 72 : 54} recalcKey={s.name.zh}>
+                      {s.name.zh}
+                      {s.transfers?.length ? (
+                        <span className="row-transfers">
+                          {s.transfers.map((t, i) => (
+                            <TransferIcon key={i} type={t.type} />
+                          ))}
+                        </span>
+                      ) : null}
+                    </FitText>
+                  </div>
+                  {s.name.ja && (
+                    <div className="ja-wrap">
+                      <FitText className="row-ja" max={isNext ? 32 : 27} recalcKey={s.name.ja}>
+                        {s.name.ja}
+                      </FitText>
+                    </div>
+                  )}
                 </div>
                 <div className="row-sep" />
-                <div className="row-en">{s.name.en}</div>
+                <div className="row-en-box">
+                  <FitText className="row-en" max={isNext ? 34 : 28} recalcKey={s.name.en}>
+                    {s.name.en}
+                  </FitText>
+                </div>
               </div>
             );
           })}
