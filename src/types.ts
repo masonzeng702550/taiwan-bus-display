@@ -60,6 +60,8 @@ export interface PlaybackSettings {
   stopListCount: number;
   /** Preferred TTS voice (by display name) per language; empty = auto-pick. */
   voices?: Partial<Record<Lang, string>>;
+  /** Arrival chime style played before the next-stop announcement. */
+  chime?: "dingdong" | "ascending";
 }
 
 export interface RouteFile {
@@ -84,4 +86,5 @@ export const DEFAULT_SETTINGS: PlaybackSettings = {
   showFare: true,
   stopListCount: 4,
   voices: { zh: "美佳", en: "Samantha", ja: "O-Ren" },
+  chime: "dingdong",
 };

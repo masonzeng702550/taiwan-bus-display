@@ -1,5 +1,7 @@
-// "Ding-dong" bus chime via Web Audio (no audio files needed). Two descending
-// sine tones with a soft envelope, played before the next-stop announcement.
+// Boarding/next-stop chimes via Web Audio (no audio files needed).
+// Two styles: a deep two-tone "ding-dong", or an ascending four-note scale.
+
+export type ChimeType = "dingdong" | "ascending";
 
 let ctx: AudioContext | null = null;
 
@@ -17,30 +19,38 @@ export function unlockAudio(): void {
   if (c && c.state === "suspended") void c.resume();
 }
 
-/** Play the chime; resolves when it has finished. */
-export function playChime(): Promise<void> {
+function tone(c: AudioContext, freq: number, at: number, dur: number, peak = 0.3): void {
+  const osc = c.createOscillator();
+  const gain = c.createGain();
+  osc.type = "sine";
+  osc.frequency.value = freq;
+  osc.connect(gain);
+  gain.connect(c.destination);
+  gain.gain.setValueAtTime(0.0001, at);
+  gain.gain.linearRampToValueAtTime(peak, at + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+  osc.start(at);
+  osc.stop(at + dur + 0.05);
+}
+
+/** Play the selected chime; resolves when it has finished. */
+export function playChime(type: ChimeType = "dingdong"): Promise<void> {
   const c = ensureCtx();
   if (!c) return Promise.resolve();
   if (c.state === "suspended") void c.resume();
-
   const now = c.currentTime;
-  const tones = [
-    { freq: 1174.7, start: 0, dur: 0.38 }, // D6 (ding)
-    { freq: 880.0, start: 0.32, dur: 0.55 }, // A5 (dong)
-  ];
-  for (const { freq, start, dur } of tones) {
-    const osc = c.createOscillator();
-    const gain = c.createGain();
-    osc.type = "sine";
-    osc.frequency.value = freq;
-    osc.connect(gain);
-    gain.connect(c.destination);
-    const t = now + start;
-    gain.gain.setValueAtTime(0.0001, t);
-    gain.gain.linearRampToValueAtTime(0.32, t + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    osc.start(t);
-    osc.stop(t + dur + 0.05);
+
+  let total: number;
+  if (type === "ascending") {
+    // Rising four-note arpeggio (C5 · E5 · G5 · C6).
+    const notes = [523.25, 659.25, 783.99, 1046.5];
+    notes.forEach((f, i) => tone(c, f, now + i * 0.16, 0.34, 0.28));
+    total = notes.length * 0.16 + 0.35;
+  } else {
+    // Deep two-tone "ding-dong" (E5 → A4) with a long, mellow decay.
+    tone(c, 659.25, now, 0.55, 0.32);
+    tone(c, 440.0, now + 0.34, 0.8, 0.34);
+    total = 1.0;
   }
-  return new Promise((resolve) => setTimeout(resolve, 900));
+  return new Promise((resolve) => setTimeout(resolve, total * 1000));
 }

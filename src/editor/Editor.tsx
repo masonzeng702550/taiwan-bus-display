@@ -5,6 +5,7 @@ import { exportRoute, parseRouteFile, saveRoute } from "../data/storage";
 import { fillEmptyLanguages, needsFill } from "../data/translate";
 import { SAMPLE_ROUTES } from "../data/sampleRoute";
 import { speakSample, voicesForLang } from "../tts/engine";
+import { playChime } from "../tts/chime";
 import { useVoices } from "./useVoices";
 import { NextStop } from "../player/pages/NextStop";
 
@@ -173,6 +174,17 @@ export function Editor({
               </div>
             );
           })}
+        </div>
+        <div className="voice-row chime-row">
+          <span className="voice-lang">到站提示音</span>
+          <select
+            value={route.settings.chime ?? "dingdong"}
+            onChange={(e) => update({ settings: { ...route.settings, chime: e.target.value as "dingdong" | "ascending" } })}
+          >
+            <option value="dingdong">叮咚（低沉雙音）</option>
+            <option value="ascending">上升四音階</option>
+          </select>
+          <button onClick={() => playChime(route.settings.chime ?? "dingdong")}>🔊 試聽</button>
         </div>
         <label className="rate-row">
           語速 {route.settings.ttsRate.toFixed(1)}×

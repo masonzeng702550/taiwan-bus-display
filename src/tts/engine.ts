@@ -21,6 +21,15 @@ export const DEFAULT_VOICE_NAMES: Record<Lang, string> = {
   ja: "O-Ren",
 };
 
+// Curated announcement-quality voices per language. When a language has an
+// allowlist, only those voices are offered (falling back to the full curated
+// list if none are installed on this device).
+const VOICE_ALLOWLIST: Partial<Record<Lang, string[]>> = {
+  zh: ["美佳", "Mei-Jia", "Li-Mu"],
+  en: ["Samantha"],
+  ja: ["O-Ren", "Kyoko", "Otoya", "Hattori"],
+};
+
 // Novelty / joke voices that are unsuitable for announcements (macOS). Hidden
 // from the picker so only usable voices are offered.
 const BLOCKED_VOICES = new Set(
@@ -61,9 +70,13 @@ export function availableLanguages(langs: Lang[]): Lang[] {
 export function voicesForLang(lang: Lang): SpeechSynthesisVoice[] {
   if (!cachedVoices.length) refreshVoices();
   const prefix = localeFor(lang).slice(0, 2).toLowerCase();
-  return cachedVoices.filter(
-    (v) => v.lang.toLowerCase().startsWith(prefix) && !BLOCKED_VOICES.has(v.name.toLowerCase()),
-  );
+  const inLang = cachedVoices.filter((v) => v.lang.toLowerCase().startsWith(prefix));
+  const allow = VOICE_ALLOWLIST[lang];
+  if (allow) {
+    const picked = inLang.filter((v) => allow.includes(v.name));
+    if (picked.length) return picked;
+  }
+  return inLang.filter((v) => !BLOCKED_VOICES.has(v.name.toLowerCase()));
 }
 
 function bestVoice(lang: Lang, voiceName?: string): SpeechSynthesisVoice | undefined {
@@ -143,7 +156,7 @@ export async function announceNextStop(route: RouteFile, stop: Stop, arrived = f
       phrases.push({ lang, text: transferLine(t, lang), voiceName });
     }
   }
-  await playChime(); // "ding-dong" before the next-stop announcement
+  await playChime(route.settings.chime ?? "dingdong"); // chime before the next-stop announcement
   return speakSequence(phrases, route.settings.ttsRate);
 }
 
