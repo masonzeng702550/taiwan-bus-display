@@ -165,7 +165,8 @@ button.icon.danger:hover { border-color: #ff6b6b; color: #ff6b6b; }
 .list-row.next .row-ja { color: #1ec1bd; }
 .list-row.next .row-en { color: #1ec1bd; }
 .row-transfers { display: inline-flex; gap: 0.2em; vertical-align: middle; margin-left: 0.25em; }
-.transfer-icon { background: #d7d7d7; color: #111; border-radius: 6px; padding: 0 0.2em; font-size: 0.8em; }
+.transfer-icon { display: inline-flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 0.22em; padding: 0.1em; line-height: 0; }
+.transfer-icon svg { display: block; }
 
 /* --- Transfer --- */
 .transfer-header { background: linear-gradient(90deg, var(--c-grad-a), var(--c-grad-b)); font-size: clamp(18px, 4cqw, 48px); font-weight: 800; padding: 1.4% 3%; }
